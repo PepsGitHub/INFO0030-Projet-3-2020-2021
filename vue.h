@@ -28,6 +28,13 @@
 #include "model.h"
 #include "controller.h"
 
+typedef struct vue_t{
+   Model *m;
+   GtkWidget *pButton[17];
+}Vue;
+
+Vue *create_vue(Model *m);
+
 /**
  * \fn GtkWidget *create_window(void)
  * \brief Crée la fenêtre
@@ -54,7 +61,13 @@ GtkWidget *create_window(void);
  * \return:
  *    pButton Succès
  */
-GtkButton *load_image_button(char *filename);
+GtkWidget *load_image_button(char *filename);
+
+GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton);
+
+void redraw_button_first_player(Vue *v, unsigned short buttonNumber);
+
+void redraw_button_second_player(Vue *v, unsigned short buttonNumber);
 
 
 

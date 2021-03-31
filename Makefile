@@ -35,7 +35,7 @@ controller.o: controller.c
 	$(CC) -c controller.c -o controller.o $(CFLAGS)
 
 clean:
-	rm -f *.o $(EXEC) *~
+	rm -f *.o oxo *~
 
 archive:
 	tar -zcvf oxo.tar.gz *.h *.c Makefile Doxyfile doxygen-bootstrapped-master

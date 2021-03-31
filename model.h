@@ -23,6 +23,14 @@
 #ifndef __MODEL__
 #define __MODEL__
 
+#include <stdbool.h>
 
+#include <gtk/gtk.h>
+
+typedef struct model_t{
+   bool value;
+}Model;
+
+Model *create_model(bool value);
 
 #endif // __model__

@@ -12,25 +12,41 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "controller.h"
 #include "vue.h"
 #include "model.h"
 
 int main(int argc, char **argv){
+   Model *m = create_model(true);
+   if(m == NULL)
+      return EXIT_FAILURE;
+
+   Vue *v = create_vue(m);
+   if(v == NULL)
+      return EXIT_FAILURE;
+
+   Controller *c = create_controller(v, m);
+   if(c == NULL)
+      return EXIT_FAILURE;
+
+   //Lancement de l'IHM
    GtkWidget *pWindow;
    GtkWidget *pTable;
    GtkWidget *pButton[17];
 
+   //Init de GTK
    gtk_init(&argc, &argv);
 
+   //Création de la fenêtre
    pWindow = create_window();
 
+   //Création des boutons pour l'initialisation de la fenêtre
    pTable = gtk_table_new(4, 5, FALSE);
-
-   for(int i = 0; i < 16; i++){
+   //create_and_attach_buttons(pTable, pButton);
+   for(int i = 0; i < 16; i++)
       pButton[i] = load_image_button("images/default.png");
-   }
 
    pButton[16] = gtk_button_new_with_label("Nouvelle Partie");
 
@@ -56,8 +72,13 @@ int main(int argc, char **argv){
 
    gtk_table_attach(GTK_TABLE(pTable), pButton[16], 1, 3, 4, 5, GTK_EXPAND, GTK_EXPAND, 0, 0);
 
-   gtk_container_add(GTK_CONTAINER(pWindow), GTK_WIDGET(pTable));
+   //Gestion des évènements
+   c->pButton = pButton[0];
+   c->pButtonNumber = 0;
+   g_signal_connect(G_OBJECT(c->pButton), "clicked", G_CALLBACK(click_first_player), c);
 
+   //Ajout des éléments à la fenêtre
+   gtk_container_add(GTK_CONTAINER(pWindow), GTK_WIDGET(pTable));
    gtk_widget_show_all(pWindow);
 
    gtk_main();

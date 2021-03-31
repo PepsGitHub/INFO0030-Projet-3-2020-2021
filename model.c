@@ -8,4 +8,19 @@
  * @projet: INFO0030 Projet 3
  */
 
+#define X 1
+#define O 0
+
+#include <stdbool.h>
+
 #include "model.h"
+
+Model *create_model(bool value){
+   Model *m = malloc(sizeof(Model));
+   if(m == NULL)
+      return NULL;
+
+   m->value = value;
+
+   return m;
+}
