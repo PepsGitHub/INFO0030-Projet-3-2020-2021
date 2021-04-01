@@ -31,15 +31,13 @@
 typedef struct controller_t{
    struct vue_t *v;
    Model *m;
-   GtkWidget *pButton;
+   GtkWidget *pButton[17];
    unsigned short pButtonNumber;
 }Controller;
 
 Controller *create_controller(struct vue_t *v, Model *m);
 
-void click_first_player(GtkWidget *pButton, gpointer data);
-
-void click_second_player(GtkWidget *pButton, gpointer data);
+void click_button(GtkWidget *pButton, gpointer data);
 
 void destroy_window(GtkWidget *pWindow, gpointer data);
 

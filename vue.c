@@ -21,7 +21,7 @@ Vue *create_vue(Model *m){
       return NULL;
 
    v->m = m;
-   //v->pButton = 
+
    return v;
 }
 
@@ -56,13 +56,32 @@ GtkWidget *load_image_button(char *filename){
    return pButton;
 }
 
-GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton){
+GtkWidget *change_image_button(GtkWidget *pButton, char *filename){
+   assert(pButton != NULL && filename != NULL);
+
+   GdkPixbuf *pb_temp = gdk_pixbuf_new_from_file(filename, NULL);
+   if(pb_temp == NULL){
+      printf("Erreur de chargement de l'image o.png!\n");
+      return NULL;
+   }
+   GdkPixbuf *pb = gdk_pixbuf_scale_simple(pb_temp, 100, 100, GDK_INTERP_NEAREST);
+
+   GtkWidget *image = gtk_image_new_from_pixbuf(pb);
+   gtk_button_set_image(GTK_BUTTON(pButton), image);
+
+   return pButton;
+}
+
+GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, Controller *c){
    assert(pButton != NULL);
 
-   for(int i = 0; i < 16; i++)
+   for(int i = 0; i < 16; i++){
       pButton[i] = load_image_button("images/default.png");
+      c->pButton[i] = pButton[i];
+   }
 
    pButton[16] = gtk_button_new_with_label("Nouvelle Partie");
+   c->pButton[16] = pButton[16];
 
    gtk_table_attach(GTK_TABLE(pTable), pButton[0], 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
    gtk_table_attach(GTK_TABLE(pTable), pButton[1], 1, 2, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
@@ -89,16 +108,11 @@ GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton){
    return pTable;
 }
 
-void redraw_button_first_player(Vue *v, unsigned short buttonNumber){
-   assert(v != NULL && buttonNumber < 16);
+void redraw_button(Controller *c){
+   assert(c != NULL && c->m->gameState);
 
-   GtkWidget *pButton = load_image_button("images/o.png");
-   v->pButton[buttonNumber] = pButton;
-}
-
-void redraw_button_second_player(Vue *v, unsigned short buttonNumber){
-   assert(v != NULL && buttonNumber < 16);
-
-   GtkWidget *pButton = load_image_button("images/x.png");
-   v->pButton[buttonNumber] = pButton;
+   if(!c->m->turn && c->m->gameState)
+      change_image_button(c->pButton[c->pButtonNumber], "images/o.png");
+   else
+      change_image_button(c->pButton[c->pButtonNumber], "images/x.png");
 }

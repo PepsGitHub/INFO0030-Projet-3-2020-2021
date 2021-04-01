@@ -28,9 +28,10 @@
 #include <gtk/gtk.h>
 
 typedef struct model_t{
-   bool value;
+   bool turn;//tour du joueur
+   bool gameState;//état du jeu, 1:in game, 0:game is finished
 }Model;
 
-Model *create_model(bool value);
+Model *create_model(bool turn, bool gameState);
 
 #endif // __model__

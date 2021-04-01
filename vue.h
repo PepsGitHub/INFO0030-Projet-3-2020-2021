@@ -30,7 +30,6 @@
 
 typedef struct vue_t{
    Model *m;
-   GtkWidget *pButton[17];
 }Vue;
 
 Vue *create_vue(Model *m);
@@ -63,11 +62,11 @@ GtkWidget *create_window(void);
  */
 GtkWidget *load_image_button(char *filename);
 
-GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton);
+GtkWidget *change_image_button(GtkWidget *pButton, char *filename);
 
-void redraw_button_first_player(Vue *v, unsigned short buttonNumber);
+GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, struct controller_t *c);
 
-void redraw_button_second_player(Vue *v, unsigned short buttonNumber);
+void redraw_button(struct controller_t *c);
 
 
 

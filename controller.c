@@ -22,22 +22,20 @@ Controller *create_controller(Vue *v, Model *m){
    c->v = v;
    c->m = m;
 
-   c->pButton = NULL;
-   c->pButtonNumber = 17;
+   for(int i = 0; i < 17; i++)
+      c->pButton[i] = NULL;
+   c->pButtonNumber = 0;
 
    return c;
 }
 
-void click_first_player(GtkWidget *pButton, gpointer data){
+void click_button(GtkWidget *pButton, gpointer data){
    Controller *c = (Controller *)data;
 
-   redraw_button_first_player(c->v, c->pButtonNumber);
-}
+   redraw_button(c);
 
-void click_second_player(GtkWidget *pButton, gpointer data){
-   Controller *c = (Controller *)data;
-
-   redraw_button_second_player(c->pButtonNumber, c->pButtonNumber);
+   c->m->turn = !c->m->turn;
+   c->pButtonNumber++;
 }
 
 void destroy_window(GtkWidget *pWindow, gpointer data){

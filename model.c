@@ -15,12 +15,12 @@
 
 #include "model.h"
 
-Model *create_model(bool value){
+Model *create_model(bool turn, bool gameState){
    Model *m = malloc(sizeof(Model));
    if(m == NULL)
       return NULL;
 
-   m->value = value;
-
+   m->turn = turn;
+   m->gameState = gameState;
    return m;
 }
