@@ -35,7 +35,7 @@ GtkWidget *create_window(){
    return pWindow;
 }
 
-GtkWidget *load_image_button(char *filename){
+GtkButton *load_image_button(char *filename){
    assert(filename != NULL);
    
    //1. Charger l'image et la redimensionner (100*100 pixels)
@@ -56,7 +56,7 @@ GtkWidget *load_image_button(char *filename){
    return pButton;
 }
 
-GtkWidget *change_image_button(GtkWidget *pButton, char *filename){
+GtkButton *change_image_button(GtkButton *pButton, char *filename){
    assert(pButton != NULL && filename != NULL);
 
    GdkPixbuf *pb_temp = gdk_pixbuf_new_from_file(filename, NULL);
@@ -72,7 +72,7 @@ GtkWidget *change_image_button(GtkWidget *pButton, char *filename){
    return pButton;
 }
 
-GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, Controller *c){
+GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, Controller *c){
    assert(pButton != NULL);
 
    for(int i = 0; i < 16; i++){
@@ -106,6 +106,25 @@ GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, Con
    gtk_table_attach(GTK_TABLE(pTable), pButton[16], 1, 3, 4, 5, GTK_EXPAND, GTK_EXPAND, 0, 0);
 
    return pTable;
+}
+
+void signal_connect(Controller *c){
+   g_signal_connect(c->pButton[0], "clicked", G_CALLBACK(click_button_0), c);
+   g_signal_connect(c->pButton[1], "clicked", G_CALLBACK(click_button_1), c);
+   g_signal_connect(c->pButton[2], "clicked", G_CALLBACK(click_button_2), c);
+   g_signal_connect(c->pButton[3], "clicked", G_CALLBACK(click_button_3), c);
+   g_signal_connect(c->pButton[4], "clicked", G_CALLBACK(click_button_4), c);
+   g_signal_connect(c->pButton[5], "clicked", G_CALLBACK(click_button_5), c);
+   g_signal_connect(c->pButton[6], "clicked", G_CALLBACK(click_button_6), c);
+   g_signal_connect(c->pButton[7], "clicked", G_CALLBACK(click_button_7), c);
+   g_signal_connect(c->pButton[8], "clicked", G_CALLBACK(click_button_8), c);
+   g_signal_connect(c->pButton[9], "clicked", G_CALLBACK(click_button_9), c);
+   g_signal_connect(c->pButton[10], "clicked", G_CALLBACK(click_button_10), c);
+   g_signal_connect(c->pButton[11], "clicked", G_CALLBACK(click_button_11), c);
+   g_signal_connect(c->pButton[12], "clicked", G_CALLBACK(click_button_12), c);
+   g_signal_connect(c->pButton[13], "clicked", G_CALLBACK(click_button_13), c);
+   g_signal_connect(c->pButton[14], "clicked", G_CALLBACK(click_button_14), c);
+   g_signal_connect(c->pButton[15], "clicked", G_CALLBACK(click_button_15), c);
 }
 
 void redraw_button(Controller *c){

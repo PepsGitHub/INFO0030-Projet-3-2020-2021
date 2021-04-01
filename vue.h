@@ -60,11 +60,13 @@ GtkWidget *create_window(void);
  * \return:
  *    pButton Succès
  */
-GtkWidget *load_image_button(char *filename);
+GtkButton *load_image_button(char *filename);
 
-GtkWidget *change_image_button(GtkWidget *pButton, char *filename);
+GtkButton *change_image_button(GtkButton *pButton, char *filename);
 
-GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, struct controller_t *c);
+GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, struct controller_t *c);
+
+void signal_connect(struct controller_t *c);
 
 void redraw_button(struct controller_t *c);
 
