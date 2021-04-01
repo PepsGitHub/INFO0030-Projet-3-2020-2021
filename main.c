@@ -19,7 +19,7 @@
 #include "model.h"
 
 int main(int argc, char **argv){
-   Model *m = create_model(false, true);
+   Model *m = create_model(false, true, 2, (false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false));
    if(m == NULL)
       return EXIT_FAILURE;
 

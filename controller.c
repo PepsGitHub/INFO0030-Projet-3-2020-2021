@@ -173,6 +173,29 @@ void click_button_15(GtkWidget *pButton, gpointer data){
    c->m->turn = !c->m->turn;
 }
 
+//resetting the game
+void click_new_game(GtkWidget *pButton, gpointer data){
+   Controller *c = (Controller *)data;
+
+   c->pButtonNumber = 16;
+
+   for(int i = 0; i < 16; i++){
+      c->m->board[i] = false;
+      change_image_button(c->pButton[i], "images/default.png");
+   }
+
+   c->m->turn = false;
+   c->m->winner = 2;
+   c->m->gameState = true;
+}
+
 void destroy_window(GtkWidget *pWindow, gpointer data){
    gtk_main_quit();
+}
+
+void button_clicked(GtkButton *pButton, Model *m){
+   assert(m != NULL && m->gameState);
+
+   /*if(!m->board[0])
+      m->turn*/
 }

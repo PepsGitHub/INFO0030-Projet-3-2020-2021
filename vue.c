@@ -125,6 +125,8 @@ void signal_connect(Controller *c){
    g_signal_connect(c->pButton[13], "clicked", G_CALLBACK(click_button_13), c);
    g_signal_connect(c->pButton[14], "clicked", G_CALLBACK(click_button_14), c);
    g_signal_connect(c->pButton[15], "clicked", G_CALLBACK(click_button_15), c);
+
+   g_signal_connect(c->pButton[16], "clicked", G_CALLBACK(click_new_game), c);
 }
 
 void redraw_button(Controller *c){

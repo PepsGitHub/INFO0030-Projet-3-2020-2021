@@ -69,6 +69,10 @@ void click_button_14(GtkWidget *pButton, gpointer data);
 
 void click_button_15(GtkWidget *pButton, gpointer data);
 
+void click_new_game(GtkWidget *pButton, gpointer data);
+
+void button_clicked(GtkButton *pButton, Model *m);
+
 void destroy_window(GtkWidget *pWindow, gpointer data);
 
 
