@@ -68,7 +68,7 @@ GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, str
 
 void signal_connect(struct controller_t *c);
 
-void redraw_button(struct controller_t *c);
+void redraw_button(struct controller_t *c, int i);
 
 
 

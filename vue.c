@@ -109,31 +109,17 @@ GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, Con
 }
 
 void signal_connect(Controller *c){
-   g_signal_connect(c->pButton[0], "clicked", G_CALLBACK(click_button_0), c);
-   g_signal_connect(c->pButton[1], "clicked", G_CALLBACK(click_button_1), c);
-   g_signal_connect(c->pButton[2], "clicked", G_CALLBACK(click_button_2), c);
-   g_signal_connect(c->pButton[3], "clicked", G_CALLBACK(click_button_3), c);
-   g_signal_connect(c->pButton[4], "clicked", G_CALLBACK(click_button_4), c);
-   g_signal_connect(c->pButton[5], "clicked", G_CALLBACK(click_button_5), c);
-   g_signal_connect(c->pButton[6], "clicked", G_CALLBACK(click_button_6), c);
-   g_signal_connect(c->pButton[7], "clicked", G_CALLBACK(click_button_7), c);
-   g_signal_connect(c->pButton[8], "clicked", G_CALLBACK(click_button_8), c);
-   g_signal_connect(c->pButton[9], "clicked", G_CALLBACK(click_button_9), c);
-   g_signal_connect(c->pButton[10], "clicked", G_CALLBACK(click_button_10), c);
-   g_signal_connect(c->pButton[11], "clicked", G_CALLBACK(click_button_11), c);
-   g_signal_connect(c->pButton[12], "clicked", G_CALLBACK(click_button_12), c);
-   g_signal_connect(c->pButton[13], "clicked", G_CALLBACK(click_button_13), c);
-   g_signal_connect(c->pButton[14], "clicked", G_CALLBACK(click_button_14), c);
-   g_signal_connect(c->pButton[15], "clicked", G_CALLBACK(click_button_15), c);
-
+   for(int i = 0; i < 16; i++){
+      g_signal_connect(c->pButton[i], "clicked", G_CALLBACK(click_button), c);
+   }
    g_signal_connect(c->pButton[16], "clicked", G_CALLBACK(click_new_game), c);
 }
 
-void redraw_button(Controller *c){
+void redraw_button(Controller *c, int i){
    assert(c != NULL && c->m->gameState);
 
    if(!c->m->turn && c->m->gameState)
-      change_image_button(c->pButton[c->pButtonNumber], "images/o.png");
+      change_image_button(c->pButton[i], "images/o.png");
    else
-      change_image_button(c->pButton[c->pButtonNumber], "images/x.png");
+      change_image_button(c->pButton[i], "images/x.png");
 }

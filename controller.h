@@ -32,10 +32,11 @@ typedef struct controller_t{
    struct vue_t *v;
    Model *m;
    GtkButton *pButton[17];
-   unsigned short pButtonNumber;
 }Controller;
 
 Controller *create_controller(struct vue_t *v, Model *m);
+
+void click_button(GtkWidget *pButton, gpointer data, int i);
 
 void click_button_0(GtkWidget *pButton, gpointer data);
 
