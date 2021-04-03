@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -91,6 +92,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">model.h File Reference</div>  </div>
 </div><!--header-->
@@ -98,18 +103,216 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Librairie contenant les prototypes des fonctions liées aux mécanismes du jeu.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;gtk/gtk.h&gt;</code><br />
+</div>
 <p><a href="model_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmodel__t.html">model_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a98a38725294bbb51d205d2eaf50a0aaa"><td class="memItemLeft" align="right" valign="top"><a id="a98a38725294bbb51d205d2eaf50a0aaa"></a>
+typedef struct <a class="el" href="structmodel__t.html">model_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Model</b></td></tr>
+<tr class="separator:a98a38725294bbb51d205d2eaf50a0aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0acdbd806dbdb6c6063bba338ff992d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmodel__t.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1">create_model</a> (bool turn, bool gameState, int winner)</td></tr>
+<tr class="memdesc:a0acdbd806dbdb6c6063bba338ff992d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée le modèle.  <a href="model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1">More...</a><br /></td></tr>
+<tr class="separator:a0acdbd806dbdb6c6063bba338ff992d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe4da8caf4977f4f1799cfacb6131f8f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="model_8h.html#afe4da8caf4977f4f1799cfacb6131f8f">check_game_status</a> (const int direction[8][3], int *winningBlock, <a class="el" href="structmodel__t.html">Model</a> *m)</td></tr>
+<tr class="memdesc:afe4da8caf4977f4f1799cfacb6131f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check si la partie est toujours en cours et si ce n'est pas le cas, donne aussi la combinaison gagnante.  <a href="model_8h.html#afe4da8caf4977f4f1799cfacb6131f8f">More...</a><br /></td></tr>
+<tr class="separator:afe4da8caf4977f4f1799cfacb6131f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd415199590879ba3b0091e4418cabb4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="model_8h.html#acd415199590879ba3b0091e4418cabb4">who_wins</a> (<a class="el" href="structmodel__t.html">Model</a> *m, int *winningBlocks)</td></tr>
+<tr class="memdesc:acd415199590879ba3b0091e4418cabb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check qui gagne.  <a href="model_8h.html#acd415199590879ba3b0091e4418cabb4">More...</a><br /></td></tr>
+<tr class="separator:acd415199590879ba3b0091e4418cabb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a519928143bf74e855a1f0ae95b10c2e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">is_board_full</a> (<a class="el" href="structmodel__t.html">Model</a> *m)</td></tr>
+<tr class="memdesc:a519928143bf74e855a1f0ae95b10c2e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">//Check si le plateau est remplit ou pas  <a href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">More...</a><br /></td></tr>
+<tr class="separator:a519928143bf74e855a1f0ae95b10c2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Librairie contenant les prototypes des fonctions liées aux mécanismes du jeu. </p>
 <p><a class="el" href="model_8h.html" title="Librairie contenant les prototypes des fonctions liées aux mécanismes du jeu.">model.h</a></p>
 <p>Ce fichier contient les prototypes des fonctions liées aux mécanismes du jeu</p>
 <dl class="section author"><dt>Author</dt><dd>: Dumoulin Peissone S193957 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>: 30/03/21 @projet: INFO0030 Projet 3</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>: 03/04/21 @projet: INFO0030 Projet 3</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Peissone Dumoulin - Université de Liège </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>30/03/2021 </dd></dl>
-</div></div><!-- contents -->
+<dl class="section date"><dt>Date</dt><dd>03/04/2021 </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="afe4da8caf4977f4f1799cfacb6131f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe4da8caf4977f4f1799cfacb6131f8f">&#9670;&nbsp;</a></span>check_game_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool check_game_status </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>direction</em>[8][3], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>winningBlock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmodel__t.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check si la partie est toujours en cours et si ce n'est pas le cas, donne aussi la combinaison gagnante. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>la direction des combinaisons gagnantes </td></tr>
+    <tr><td class="paramname">winningBlock</td><td>la combinaison gagnante </td></tr>
+    <tr><td class="paramname">m</td><td>le modèle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: m != NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: le statut est correctement vérifié</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>: true Partie finie false Partie toujours en cours </dd></dl>
+
+</div>
+</div>
+<a id="a0acdbd806dbdb6c6063bba338ff992d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0acdbd806dbdb6c6063bba338ff992d1">&#9670;&nbsp;</a></span>create_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmodel__t.html">Model</a>* create_model </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>turn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>gameState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>winner</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crée le modèle. </p>
+<p>model.c</p>
+<p>Ce fichier contient les fonctions liées aux mécanismes du jeu</p>
+<dl class="section author"><dt>Author</dt><dd>: Dumoulin Peissone S193957 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>: 03/04/21 @projet: INFO0030 Projet 3</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">turn</td><td>tour du joueur: false: premier joueur 'o', true: deuxième joueur 'x' </td></tr>
+    <tr><td class="paramname">gameState</td><td>état du jeu: true: partie en cours, false: partie terminée </td></tr>
+    <tr><td class="paramname">winner</td><td>gagnant: -2: on ne sait pas encore, -1: premier joueur, 0: égalité, 1; deuxième joueur</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: \ </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: le modèle est correctement créé</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>: m Succès </dd></dl>
+
+</div>
+</div>
+<a id="a519928143bf74e855a1f0ae95b10c2e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a519928143bf74e855a1f0ae95b10c2e3">&#9670;&nbsp;</a></span>is_board_full()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_board_full </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmodel__t.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>//Check si le plateau est remplit ou pas </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>le modèle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: m != NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: on sait si le plateau est rempli ou non</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>: true Le plateau est rempli false Le plateau n'est pas rempli </dd></dl>
+
+</div>
+</div>
+<a id="acd415199590879ba3b0091e4418cabb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd415199590879ba3b0091e4418cabb4">&#9670;&nbsp;</a></span>who_wins()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int who_wins </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmodel__t.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>winningBlocks</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check qui gagne. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>le modèle </td></tr>
+    <tr><td class="paramname">winningBlock</td><td>la combinaison gagnante</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>: m != NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>: on connaît l'issue de la partie</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>: -1 Le premier joueur a gagné 0 Egalité 1 Le deuxième joueur a gagné </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

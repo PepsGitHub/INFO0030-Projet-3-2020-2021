@@ -1,4 +1,12 @@
 var searchData=
 [
-  ['model_2eh_2',['model.h',['../model_8h.html',1,'']]]
+  ['change_5fimage_5fbutton_1',['change_image_button',['../vue_8h.html#ae2307cb69fe1f94845e44a0d8af46a8f',1,'vue.c']]],
+  ['check_5fgame_5fstatus_2',['check_game_status',['../model_8h.html#afe4da8caf4977f4f1799cfacb6131f8f',1,'model.c']]],
+  ['controller_2eh_3',['controller.h',['../controller_8h.html',1,'']]],
+  ['controller_5ft_4',['controller_t',['../structcontroller__t.html',1,'']]],
+  ['create_5fand_5fattach_5fbuttons_5',['create_and_attach_buttons',['../vue_8h.html#a03dc1763bc879126b1977ae880553463',1,'vue.c']]],
+  ['create_5fcontroller_6',['create_controller',['../controller_8h.html#a90b6c001e588684fb4e4362ac19446fe',1,'controller.c']]],
+  ['create_5fmodel_7',['create_model',['../model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1',1,'model.c']]],
+  ['create_5fvue_8',['create_vue',['../vue_8h.html#a4fdadf9b6d48dd2af5f231894b490aad',1,'vue.c']]],
+  ['create_5fwindow_9',['create_window',['../vue_8h.html#aca82692e3cdaff089bbfc7f3c9f69603',1,'vue.c']]]
 ];

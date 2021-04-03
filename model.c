@@ -4,14 +4,16 @@
  * Ce fichier contient les fonctions liées aux mécanismes du jeu
  * 
  * @author: Dumoulin Peissone S193957
- * @date: 30/03/21
+ * @date: 03/04/21
  * @projet: INFO0030 Projet 3
  */
 
 #include <stdbool.h>
+#include <assert.h>
 
 #include "model.h"
 
+//Création du modèle
 Model *create_model(bool turn, bool gameState, int winner){
    Model *m = malloc(sizeof(Model));
    if(m == NULL)
@@ -34,76 +36,68 @@ const int vertical[8][3] = {{0, 4, 8}, {4, 8, 12}, {1, 5, 9}, {5, 9, 13}, {2, 6,
 
 const int diagonal[8][3] = {{4, 9, 14}, {0, 5, 10}, {5, 10, 15}, {1, 6, 11}, {2, 5, 8}, {3, 6, 9}, {6, 9, 12}, {7, 10, 13}};
 
-//check si la partie est finie ou si elle continue
-bool check_game_status(const int winningDirection[8][3], int *winningBlock, Model *m){
-   int count = 0, i = 0;
-   for(i = 0; i < 8; i++){
-      count = 0;
-      if(m->board[winningDirection[i][0]] == 'o')
+//Check si la partie est toujours en cours et si ce n'est pas le cas, donne aussi la combinaison gagnante
+bool check_game_status(const int direction[8][3], int *winningBlock, Model *m){
+   assert(m != NULL);
+
+   for(int i = 0; i < 8; i++){
+      int count = 0;
+      if(m->board[direction[i][0]] == 'o')
          count++;
       
-      if(m->board[winningDirection[i][1]] == 'x')
+      if(m->board[direction[i][1]] == 'x')
          count++;
       
-      if(m->board[winningDirection[i][2]] == 'o')
+      if(m->board[direction[i][2]] == 'o')
          count++;
 
       if(count == 3){
-         winningBlock[0] = winningDirection[i][0];
-         winningBlock[1] = winningDirection[i][1];
-         winningBlock[2] = winningDirection[i][2];
-         return true;
+         winningBlock[0] = direction[i][0];
+         winningBlock[1] = direction[i][1];
+         winningBlock[2] = direction[i][2];
+         return true;//partie terminée
       }
    }
-   return false;//game is still busy
+   return false;//partie toujours en cours
 }
 
-//regarde qui gagne
+//Check qui gagne
 int who_wins(Model *m, int *winningBlocks){
+   assert(m != NULL);
+
    bool win = false;
 
    win = check_game_status(horizontal, winningBlocks, m);
    if(win && m->turn)
-      m->winner = 1;//player 2 won
+      m->winner = 1;//le joueur 2 gagne
    else if(win && !m->turn)
-      m->winner = -1;//player 1 won
+      m->winner = -1;//le joueur 1 gagne
    
    win = check_game_status(vertical, winningBlocks, m);
    if(win && m->turn)
-      m->winner = 1;//player 2 won
+      m->winner = 1;//le joueur 2 gagne
    else if(win && !m->turn)
-      m->winner = -1;//player 1 won
+      m->winner = -1;//le joueur 1 gagne
 
    win = check_game_status(diagonal, winningBlocks, m);
    if(win && m->turn)
-      m->winner = 1;//player 2 won
+      m->winner = 1;//le joueur 2 gagne
    else if(win && !m->turn)
-      m->winner = -1;//player 1 won
+      m->winner = -1;//le joueur 1 gagne
 
    if(is_board_full(m))
-      m->winner = 0;
+      m->winner = 0;//égalité
 
    return m->winner;
 }
 
-//check si le board est remplit ou pas
+//Check si le plateau est remplit ou pas
 bool is_board_full(Model *m){
+   assert(m != NULL);
+
    for(int i = 0; i < 16; i++){
       if(m->board[i] == 0)
          return false;
    }
    return true;
-}
-
-//check s'il y a eu plus de 3 tours
-bool is_combination_possible(Model *m){
-   int count = 0;
-   for(int i = 0; i < 16; i++){
-      if(m->board[i] == 'o' || m->board[i] == 'x')
-         count++;
-   }
-   if(count >= 3)
-      return true;
-   else 
-      return false;
 }

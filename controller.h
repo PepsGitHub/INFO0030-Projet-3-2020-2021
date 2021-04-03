@@ -23,6 +23,7 @@
 #ifndef __CONTROLLER__
 #define __CONTROLLER__
 
+#include <assert.h>
 #include <gtk/gtk.h>
 
 #include "model.h"
@@ -36,6 +37,8 @@ typedef struct controller_t{
 }Controller;
 
 Controller *create_controller(struct vue_t *v, Model *m);
+
+void signal_connect(struct controller_t *c);
 
 void click_button_0(GtkWidget *pButton, gpointer data);
 

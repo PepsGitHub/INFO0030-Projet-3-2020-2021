@@ -29,6 +29,28 @@ Controller *create_controller(Vue *v, Model *m){
    return c;
 }
 
+//Rassemble les actions des boutons
+void signal_connect(Controller *c){
+   g_signal_connect(c->pButton[0], "clicked", G_CALLBACK(click_button_0), c);
+   g_signal_connect(c->pButton[1], "clicked", G_CALLBACK(click_button_1), c);
+   g_signal_connect(c->pButton[2], "clicked", G_CALLBACK(click_button_2), c);
+   g_signal_connect(c->pButton[3], "clicked", G_CALLBACK(click_button_3), c);
+   g_signal_connect(c->pButton[4], "clicked", G_CALLBACK(click_button_4), c);
+   g_signal_connect(c->pButton[5], "clicked", G_CALLBACK(click_button_5), c);
+   g_signal_connect(c->pButton[6], "clicked", G_CALLBACK(click_button_6), c);
+   g_signal_connect(c->pButton[7], "clicked", G_CALLBACK(click_button_7), c);
+   g_signal_connect(c->pButton[8], "clicked", G_CALLBACK(click_button_8), c);
+   g_signal_connect(c->pButton[9], "clicked", G_CALLBACK(click_button_9), c);
+   g_signal_connect(c->pButton[10], "clicked", G_CALLBACK(click_button_10), c);
+   g_signal_connect(c->pButton[11], "clicked", G_CALLBACK(click_button_11), c);
+   g_signal_connect(c->pButton[12], "clicked", G_CALLBACK(click_button_12), c);
+   g_signal_connect(c->pButton[13], "clicked", G_CALLBACK(click_button_13), c);
+   g_signal_connect(c->pButton[14], "clicked", G_CALLBACK(click_button_14), c);
+   g_signal_connect(c->pButton[15], "clicked", G_CALLBACK(click_button_15), c);
+
+   g_signal_connect(c->pButton[16], "clicked", G_CALLBACK(click_new_game), c);
+}
+
 void click_button_0(GtkWidget *pButton, gpointer data){
    Controller *c = (Controller *)data;
 

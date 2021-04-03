@@ -13,6 +13,7 @@
 
 #include "vue.h"
 
+//Création de la vue
 Vue *create_vue(Model *m){
    assert(m != NULL);
 
@@ -25,6 +26,7 @@ Vue *create_vue(Model *m){
    return v;
 }
 
+//Création de la fenêtre
 GtkWidget *create_window(){
    GtkWidget *pWindow = gtk_window_new(GTK_WINDOW_TOPLEVEL);
    gtk_window_set_title(GTK_WINDOW(pWindow), "oxo");
@@ -35,6 +37,7 @@ GtkWidget *create_window(){
    return pWindow;
 }
 
+//Création d'un bouton avec image
 GtkButton *load_image_button(char *filename){
    assert(filename != NULL);
    
@@ -56,6 +59,7 @@ GtkButton *load_image_button(char *filename){
    return pButton;
 }
 
+//Permet de changer l'image d'un bouton déjà existant
 GtkButton *change_image_button(GtkButton *pButton, char *filename){
    assert(pButton != NULL && filename != NULL);
 
@@ -72,8 +76,9 @@ GtkButton *change_image_button(GtkButton *pButton, char *filename){
    return pButton;
 }
 
+//Création des boutons et du tableau de boutons
 GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, Controller *c){
-   assert(pButton != NULL);
+   assert(pButton != NULL && c != NULL);
 
    for(int i = 0; i < 16; i++){
       pButton[i] = load_image_button("images/default.png");
@@ -108,27 +113,7 @@ GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, Con
    return pTable;
 }
 
-void signal_connect(Controller *c){
-   g_signal_connect(c->pButton[0], "clicked", G_CALLBACK(click_button_0), c);
-   g_signal_connect(c->pButton[1], "clicked", G_CALLBACK(click_button_1), c);
-   g_signal_connect(c->pButton[2], "clicked", G_CALLBACK(click_button_2), c);
-   g_signal_connect(c->pButton[3], "clicked", G_CALLBACK(click_button_3), c);
-   g_signal_connect(c->pButton[4], "clicked", G_CALLBACK(click_button_4), c);
-   g_signal_connect(c->pButton[5], "clicked", G_CALLBACK(click_button_5), c);
-   g_signal_connect(c->pButton[6], "clicked", G_CALLBACK(click_button_6), c);
-   g_signal_connect(c->pButton[7], "clicked", G_CALLBACK(click_button_7), c);
-   g_signal_connect(c->pButton[8], "clicked", G_CALLBACK(click_button_8), c);
-   g_signal_connect(c->pButton[9], "clicked", G_CALLBACK(click_button_9), c);
-   g_signal_connect(c->pButton[10], "clicked", G_CALLBACK(click_button_10), c);
-   g_signal_connect(c->pButton[11], "clicked", G_CALLBACK(click_button_11), c);
-   g_signal_connect(c->pButton[12], "clicked", G_CALLBACK(click_button_12), c);
-   g_signal_connect(c->pButton[13], "clicked", G_CALLBACK(click_button_13), c);
-   g_signal_connect(c->pButton[14], "clicked", G_CALLBACK(click_button_14), c);
-   g_signal_connect(c->pButton[15], "clicked", G_CALLBACK(click_button_15), c);
-
-   g_signal_connect(c->pButton[16], "clicked", G_CALLBACK(click_new_game), c);
-}
-
+//Redessine le bouton qui vient d'être cliqué
 void redraw_button(Controller *c){
    assert(c != NULL);
 
@@ -140,14 +125,14 @@ void redraw_button(Controller *c){
       c->m->board[c->pButtonNumber] = 'x';
    }
 
-   if(is_combination_possible(c->m) && c->m->gameState){
+   if(c->m->gameState){
       int winningBlock[3] = {0, 1, 2};
       switch(who_wins(c->m, winningBlock)){
-      case 0://game is tied
+      case 0://égalité
          printf("Neither player managed to get a win\n");
          
          break;
-      case -1://player 1 won
+      case -1://Le premier joueur a gagné
          change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
          change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
          change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");
@@ -157,7 +142,7 @@ void redraw_button(Controller *c){
          c->m->gameState = false;
 
          break;
-      case 1://player 2 won
+      case 1://Le deuxième joueur a gagné
          change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
          change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
          change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");
