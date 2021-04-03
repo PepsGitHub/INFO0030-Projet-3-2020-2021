@@ -4,7 +4,7 @@
  * Ce fichier contient les prototypes des fonctions liées à l'affichage du jeu
  * 
  * \author: Dumoulin Peissone S193957
- * \date: 30/03/21
+ * \date: 03/04/21
  * @projet: INFO0030 Projet 3
  */
 
@@ -13,7 +13,7 @@
  * \brief Librairie contenant les prototypes des fonctions liées à l'affichage du jeu
  * \author Peissone Dumoulin - Université de Liège
  * \version 1.0
- * \date 30/03/2021
+ * \date 03/04/2021
 */
 
 /*
