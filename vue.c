@@ -130,10 +130,39 @@ void signal_connect(Controller *c){
 }
 
 void redraw_button(Controller *c){
-   assert(c != NULL && c->m->gameState);
+   assert(c != NULL);
 
-   if(!c->m->turn && c->m->gameState)
+   if(!c->m->turn && c->m->gameState){
       change_image_button(c->pButton[c->pButtonNumber], "images/o.png");
-   else
+      c->m->board[c->pButtonNumber] = 'o';
+   }else if(c->m->turn && c->m->gameState){
       change_image_button(c->pButton[c->pButtonNumber], "images/x.png");
+      c->m->board[c->pButtonNumber] = 'x';
+   }
+
+   if(is_combination_possible(c->m) && c->m->gameState){
+      int winningBlock[3] = {0, 1, 2};
+      switch(who_wins(c->m, winningBlock)){
+      case 0://game is tied
+         printf("Neither player managed to get a win\n");
+         break;
+      case -1://player 1 won
+      /*
+         change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
+         change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
+         change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");*/
+         printf("Player 1 has won the game\n");
+         c->m->gameState = false;
+         break;
+      case 1://player 2 won
+      /*
+         change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
+         change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
+         change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");
+         */
+         printf("Player 2 has won the game\n");
+         c->m->gameState = false;
+         break;
+      }
+   }
 }

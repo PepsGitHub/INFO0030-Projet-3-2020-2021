@@ -19,7 +19,7 @@
 #include "model.h"
 
 int main(int argc, char **argv){
-   Model *m = create_model(false, true, 2, (false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false));
+   Model *m = create_model(false, true, -2);
    if(m == NULL)
       return EXIT_FAILURE;
 
@@ -47,10 +47,8 @@ int main(int argc, char **argv){
    create_and_attach_buttons(pTable, pButton, c);
 
    //Gestion des évènements
-   signal_connect(c);
-
-   if(c->pButtonNumber > 15)
-      c->m->gameState = false;
+   if(c->m->gameState)
+      signal_connect(c);
 
    //Ajout des éléments à la fenêtre
    gtk_container_add(GTK_CONTAINER(pWindow), GTK_WIDGET(pTable));

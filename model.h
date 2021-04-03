@@ -30,16 +30,18 @@
 typedef struct model_t{
    bool turn;//tour du joueur
    bool gameState;//état du jeu, 1:in game, 0:game is finished
-   int winner; //1: first player, 0: tie, -1; second player, 2:not yet declared
-   bool board[16];
+   int winner; //-2: still playing, 1: first player, 0: tie, -1; second player
+   char board[16];
 }Model;
 
-Model *create_model(bool turn, bool gameState, int winner, bool *board);
+Model *create_model(bool turn, bool gameState, int winner);
 
-bool check_game_status(const int winningDirection[8][3], int *winningBlock, Model *m);
+bool check_game_status(const int winningDirection[8][3], int winningBlock[3], Model *m);
 
-int who_wins(Model *m);
+int who_wins(Model *m, int *winningBlocks);
 
 bool is_board_full(Model *m);
+
+bool is_combination_possible(Model *m);
 
 #endif // __model__

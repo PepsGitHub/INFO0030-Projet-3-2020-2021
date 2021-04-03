@@ -71,5 +71,4 @@ void signal_connect(struct controller_t *c);
 void redraw_button(struct controller_t *c);
 
 
-
 #endif // __vue__
