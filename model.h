@@ -36,7 +36,7 @@ typedef struct model_t{
 
 Model *create_model(bool turn, bool gameState, int winner);
 
-bool check_game_status(const int winningDirection[8][3], int winningBlock[3], Model *m);
+bool check_game_status(const int winningDirection[8][3], int *winningBlock, Model *m);
 
 int who_wins(Model *m, int *winningBlocks);
 

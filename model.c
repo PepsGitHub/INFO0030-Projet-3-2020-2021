@@ -35,26 +35,23 @@ const int vertical[8][3] = {{0, 4, 8}, {4, 8, 12}, {1, 5, 9}, {5, 9, 13}, {2, 6,
 const int diagonal[8][3] = {{4, 9, 14}, {0, 5, 10}, {5, 10, 15}, {1, 6, 11}, {2, 5, 8}, {3, 6, 9}, {6, 9, 12}, {7, 10, 13}};
 
 //check si la partie est finie ou si elle continue
-bool check_game_status(const int winningDirection[8][3], int winningBlock[3], Model *m){
-   int count = 0, j = 0;
-   for(int i = 0; i < 8; i++){
+bool check_game_status(const int winningDirection[8][3], int *winningBlock, Model *m){
+   int count = 0, i = 0;
+   for(i = 0; i < 8; i++){
       count = 0;
-      if(m->board[winningDirection[i][j]] == 'o'){
-         winningBlock[0] = winningDirection[i][j];
+      if(m->board[winningDirection[i][0]] == 'o')
          count++;
-      }
       
-      if(m->board[winningDirection[i][j+1]] == 'x'){
-         winningBlock[1] = winningDirection[i][j];
+      if(m->board[winningDirection[i][1]] == 'x')
          count++;
-      }
       
-      if(m->board[winningDirection[i][j+2]] == 'o'){
-         winningBlock[2] = winningDirection[i][j];
+      if(m->board[winningDirection[i][2]] == 'o')
          count++;
-      }
 
       if(count == 3){
+         winningBlock[0] = winningDirection[i][0];
+         winningBlock[1] = winningDirection[i][1];
+         winningBlock[2] = winningDirection[i][2];
          return true;
       }
    }

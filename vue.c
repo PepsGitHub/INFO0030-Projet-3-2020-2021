@@ -145,23 +145,27 @@ void redraw_button(Controller *c){
       switch(who_wins(c->m, winningBlock)){
       case 0://game is tied
          printf("Neither player managed to get a win\n");
+         
          break;
       case -1://player 1 won
-      /*
-         change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
-         change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
-         change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");*/
-         printf("Player 1 has won the game\n");
-         c->m->gameState = false;
-         break;
-      case 1://player 2 won
-      /*
          change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
          change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
          change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");
-         */
-         printf("Player 2 has won the game\n");
+
+         printf("Player 1 has won the game\n");
+
          c->m->gameState = false;
+
+         break;
+      case 1://player 2 won
+         change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
+         change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
+         change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");
+
+         printf("Player 2 has won the game\n");
+
+         c->m->gameState = false;
+
          break;
       }
    }
