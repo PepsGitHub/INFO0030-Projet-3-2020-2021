@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['who_5fwins_16',['who_wins',['../model_8h.html#acd415199590879ba3b0091e4418cabb4',1,'model.c']]]
+  ['signal_5fconnect_31',['signal_connect',['../controller_8h.html#ad48b39520f51de54fa91301e5912d9d8',1,'controller.c']]]
 ];

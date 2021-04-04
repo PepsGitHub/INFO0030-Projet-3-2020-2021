@@ -113,59 +113,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structcontroller__t.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcontroller__t.html">controller_t</a>{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;   <span class="keyword">struct </span><a class="code" href="structvue__t.html">vue_t</a> *v;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;   <a class="code" href="structmodel__t.html">Model</a> *m;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;   GtkButton *pButton[17];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;   GtkWidget *pButton[17];</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> pButtonNumber;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}<a class="code" href="structcontroller__t.html">Controller</a>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<a class="code" href="structcontroller__t.html">Controller</a> *<a class="code" href="controller_8h.html#a90b6c001e588684fb4e4362ac19446fe">create_controller</a>(<span class="keyword">struct</span> <a class="code" href="structvue__t.html">vue_t</a> *v, <a class="code" href="structmodel__t.html">Model</a> *m);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> signal_connect(<span class="keyword">struct</span> <a class="code" href="structcontroller__t.html">controller_t</a> *c);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> click_button_0(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> click_button_1(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> click_button_2(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> click_button_3(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> click_button_4(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="structcontroller__t.html">Controller</a> *<a class="code" href="controller_8h.html#a90b6c001e588684fb4e4362ac19446fe">create_controller</a>(<span class="keyword">struct</span> <a class="code" href="structvue__t.html">vue_t</a> *v, <a class="code" href="structmodel__t.html">Model</a> *m);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> click_button_5(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> click_button_6(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> click_button_7(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> click_button_8(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> click_button_9(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> click_button_10(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> click_button_11(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> click_button_12(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">void</span> click_button_13(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> click_button_14(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> click_button_15(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> click_new_game(GtkWidget *pButton, gpointer data);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> destroy_window(GtkWidget *pWindow, gpointer data);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif // __controller__</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#ad48b39520f51de54fa91301e5912d9d8">signal_connect</a>(<span class="keyword">struct</span> <a class="code" href="structcontroller__t.html">controller_t</a> *c);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#ac31fd8180e08c8a09d5b39510980a855">click_button_0</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a0b58d714f84f68c721c8fe248958fe22">click_button_1</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a6322e6df1d953bae22e5865b07647836">click_button_2</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a84722c33cd989d147f075eb941482202">click_button_3</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a51e919cb60a4eb4700dee84f7e1e5919">click_button_4</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#aa9be9cec61031827d73cd775611a8638">click_button_5</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a01d0bfc71ae692b1872874d1df2e1a60">click_button_6</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a1c8b113ba48ac25d722362ee156f5a18">click_button_7</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a0970ff7694c72e0e8dd4d9b9d3c7258f">click_button_8</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#adcee880a5eec428bd06ffef2236348ff">click_button_9</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a4bebc7148245cfe6c22f808400ea084f">click_button_10</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a21ae205552ce41076eb8ff4545045c6e">click_button_11</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a12a66ba22d4e2c740d83f6a06cd9a2eb">click_button_12</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#aeb2404a44d9269f51aa80ec2a62a4fa3">click_button_13</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#a5deec334339978a2a3c4824ac4e5080f">click_button_14</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#ab022492ea38f20beb5cd8f4c91f3793d">click_button_15</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#ad87be3e0d8b797774cba29e0c85d7ea7">click_new_game</a>(GtkWidget *pButton, gpointer data);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="keywordtype">void</span> <a class="code" href="controller_8h.html#ac90547c30beb3daef29aa9c464a72ad6">destroy_window</a>(GtkWidget *pWindow, gpointer data);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="preprocessor">#endif // __controller__</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructmodel__t_html"><div class="ttname"><a href="structmodel__t.html">model_t</a></div><div class="ttdef"><b>Definition:</b> model.h:31</div></div>
 <div class="ttc" id="astructcontroller__t_html"><div class="ttname"><a href="structcontroller__t.html">controller_t</a></div><div class="ttdef"><b>Definition:</b> controller.h:32</div></div>
+<div class="ttc" id="acontroller_8h_html_a5deec334339978a2a3c4824ac4e5080f"><div class="ttname"><a href="controller_8h.html#a5deec334339978a2a3c4824ac4e5080f">click_button_14</a></div><div class="ttdeci">void click_button_14(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 14.</div><div class="ttdef"><b>Definition:</b> controller.c:212</div></div>
 <div class="ttc" id="amodel_8h_html"><div class="ttname"><a href="model_8h.html">model.h</a></div><div class="ttdoc">Librairie contenant les prototypes des fonctions liées aux mécanismes du jeu.</div></div>
+<div class="ttc" id="acontroller_8h_html_a1c8b113ba48ac25d722362ee156f5a18"><div class="ttname"><a href="controller_8h.html#a1c8b113ba48ac25d722362ee156f5a18">click_button_7</a></div><div class="ttdeci">void click_button_7(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 7.</div><div class="ttdef"><b>Definition:</b> controller.c:135</div></div>
 <div class="ttc" id="avue_8h_html"><div class="ttname"><a href="vue_8h.html">vue.h</a></div><div class="ttdoc">Librairie contenant les prototypes des fonctions liées à l'affichage du jeu.</div></div>
-<div class="ttc" id="acontroller_8h_html_a90b6c001e588684fb4e4362ac19446fe"><div class="ttname"><a href="controller_8h.html#a90b6c001e588684fb4e4362ac19446fe">create_controller</a></div><div class="ttdeci">Controller * create_controller(struct vue_t *v, Model *m)</div><div class="ttdef"><b>Definition:</b> controller.c:15</div></div>
+<div class="ttc" id="acontroller_8h_html_a4bebc7148245cfe6c22f808400ea084f"><div class="ttname"><a href="controller_8h.html#a4bebc7148245cfe6c22f808400ea084f">click_button_10</a></div><div class="ttdeci">void click_button_10(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 10.</div><div class="ttdef"><b>Definition:</b> controller.c:168</div></div>
+<div class="ttc" id="acontroller_8h_html_a12a66ba22d4e2c740d83f6a06cd9a2eb"><div class="ttname"><a href="controller_8h.html#a12a66ba22d4e2c740d83f6a06cd9a2eb">click_button_12</a></div><div class="ttdeci">void click_button_12(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 12.</div><div class="ttdef"><b>Definition:</b> controller.c:190</div></div>
+<div class="ttc" id="acontroller_8h_html_a21ae205552ce41076eb8ff4545045c6e"><div class="ttname"><a href="controller_8h.html#a21ae205552ce41076eb8ff4545045c6e">click_button_11</a></div><div class="ttdeci">void click_button_11(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 11.</div><div class="ttdef"><b>Definition:</b> controller.c:179</div></div>
+<div class="ttc" id="acontroller_8h_html_a90b6c001e588684fb4e4362ac19446fe"><div class="ttname"><a href="controller_8h.html#a90b6c001e588684fb4e4362ac19446fe">create_controller</a></div><div class="ttdeci">Controller * create_controller(struct vue_t *v, Model *m)</div><div class="ttdoc">Crée le controlleur.</div><div class="ttdef"><b>Definition:</b> controller.c:16</div></div>
+<div class="ttc" id="acontroller_8h_html_ac90547c30beb3daef29aa9c464a72ad6"><div class="ttname"><a href="controller_8h.html#ac90547c30beb3daef29aa9c464a72ad6">destroy_window</a></div><div class="ttdeci">void destroy_window(GtkWidget *pWindow, gpointer data)</div><div class="ttdoc">Détruit la fenêtre.</div><div class="ttdef"><b>Definition:</b> controller.c:251</div></div>
+<div class="ttc" id="acontroller_8h_html_a0b58d714f84f68c721c8fe248958fe22"><div class="ttname"><a href="controller_8h.html#a0b58d714f84f68c721c8fe248958fe22">click_button_1</a></div><div class="ttdeci">void click_button_1(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 1.</div><div class="ttdef"><b>Definition:</b> controller.c:69</div></div>
+<div class="ttc" id="acontroller_8h_html_adcee880a5eec428bd06ffef2236348ff"><div class="ttname"><a href="controller_8h.html#adcee880a5eec428bd06ffef2236348ff">click_button_9</a></div><div class="ttdeci">void click_button_9(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 9.</div><div class="ttdef"><b>Definition:</b> controller.c:157</div></div>
+<div class="ttc" id="acontroller_8h_html_a51e919cb60a4eb4700dee84f7e1e5919"><div class="ttname"><a href="controller_8h.html#a51e919cb60a4eb4700dee84f7e1e5919">click_button_4</a></div><div class="ttdeci">void click_button_4(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 4.</div><div class="ttdef"><b>Definition:</b> controller.c:102</div></div>
+<div class="ttc" id="acontroller_8h_html_ab022492ea38f20beb5cd8f4c91f3793d"><div class="ttname"><a href="controller_8h.html#ab022492ea38f20beb5cd8f4c91f3793d">click_button_15</a></div><div class="ttdeci">void click_button_15(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 15.</div><div class="ttdef"><b>Definition:</b> controller.c:223</div></div>
+<div class="ttc" id="acontroller_8h_html_ad87be3e0d8b797774cba29e0c85d7ea7"><div class="ttname"><a href="controller_8h.html#ad87be3e0d8b797774cba29e0c85d7ea7">click_new_game</a></div><div class="ttdeci">void click_new_game(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Réinitialise le jeu.</div><div class="ttdef"><b>Definition:</b> controller.c:235</div></div>
+<div class="ttc" id="acontroller_8h_html_a84722c33cd989d147f075eb941482202"><div class="ttname"><a href="controller_8h.html#a84722c33cd989d147f075eb941482202">click_button_3</a></div><div class="ttdeci">void click_button_3(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 3.</div><div class="ttdef"><b>Definition:</b> controller.c:91</div></div>
+<div class="ttc" id="acontroller_8h_html_aeb2404a44d9269f51aa80ec2a62a4fa3"><div class="ttname"><a href="controller_8h.html#aeb2404a44d9269f51aa80ec2a62a4fa3">click_button_13</a></div><div class="ttdeci">void click_button_13(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 13.</div><div class="ttdef"><b>Definition:</b> controller.c:201</div></div>
+<div class="ttc" id="acontroller_8h_html_aa9be9cec61031827d73cd775611a8638"><div class="ttname"><a href="controller_8h.html#aa9be9cec61031827d73cd775611a8638">click_button_5</a></div><div class="ttdeci">void click_button_5(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 5.</div><div class="ttdef"><b>Definition:</b> controller.c:113</div></div>
+<div class="ttc" id="acontroller_8h_html_a01d0bfc71ae692b1872874d1df2e1a60"><div class="ttname"><a href="controller_8h.html#a01d0bfc71ae692b1872874d1df2e1a60">click_button_6</a></div><div class="ttdeci">void click_button_6(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 6.</div><div class="ttdef"><b>Definition:</b> controller.c:124</div></div>
+<div class="ttc" id="acontroller_8h_html_ac31fd8180e08c8a09d5b39510980a855"><div class="ttname"><a href="controller_8h.html#ac31fd8180e08c8a09d5b39510980a855">click_button_0</a></div><div class="ttdeci">void click_button_0(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 0.</div><div class="ttdef"><b>Definition:</b> controller.c:58</div></div>
 <div class="ttc" id="astructvue__t_html"><div class="ttname"><a href="structvue__t.html">vue_t</a></div><div class="ttdef"><b>Definition:</b> vue.h:32</div></div>
+<div class="ttc" id="acontroller_8h_html_a6322e6df1d953bae22e5865b07647836"><div class="ttname"><a href="controller_8h.html#a6322e6df1d953bae22e5865b07647836">click_button_2</a></div><div class="ttdeci">void click_button_2(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 2.</div><div class="ttdef"><b>Definition:</b> controller.c:80</div></div>
+<div class="ttc" id="acontroller_8h_html_a0970ff7694c72e0e8dd4d9b9d3c7258f"><div class="ttname"><a href="controller_8h.html#a0970ff7694c72e0e8dd4d9b9d3c7258f">click_button_8</a></div><div class="ttdeci">void click_button_8(GtkWidget *pButton, gpointer data)</div><div class="ttdoc">Conséquences du clic sur le bouton 8.</div><div class="ttdef"><b>Definition:</b> controller.c:146</div></div>
+<div class="ttc" id="acontroller_8h_html_ad48b39520f51de54fa91301e5912d9d8"><div class="ttname"><a href="controller_8h.html#ad48b39520f51de54fa91301e5912d9d8">signal_connect</a></div><div class="ttdeci">void signal_connect(struct controller_t *c)</div><div class="ttdoc">Rassemble les actions des boutons.</div><div class="ttdef"><b>Definition:</b> controller.c:34</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

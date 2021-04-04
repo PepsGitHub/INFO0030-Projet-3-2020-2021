@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fboard_5ffull_9',['is_board_full',['../model_8h.html#a519928143bf74e855a1f0ae95b10c2e3',1,'model.c']]]
+  ['destroy_5fwindow_24',['destroy_window',['../controller_8h.html#ac90547c30beb3daef29aa9c464a72ad6',1,'controller.c']]]
 ];

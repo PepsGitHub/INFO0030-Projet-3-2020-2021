@@ -4,7 +4,7 @@
  * Ce fichier est le point d'entrée du programme
  * 
  * @author: Dumoulin Peissone S193957
- * @date: 30/03/21
+ * @date: 04/04/21
  * @projet: INFO0030 Projet 3
  */
 
@@ -34,7 +34,7 @@ int main(int argc, char **argv){
    //Lancement de l'IHM
    GtkWidget *pWindow;
    GtkWidget *pTable;
-   GtkButton *pButton[17];
+   GtkWidget *pButton[17];
 
    //Init de GTK
    gtk_init(&argc, &argv);

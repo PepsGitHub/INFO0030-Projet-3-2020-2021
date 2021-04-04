@@ -8,31 +8,32 @@
 
 # Tools & flags
 CC=gcc
-CFLAGS=--std=c99 --pedantic -Wall -W -Wmissing-prototypes -g `pkg-config --cflags --libs gtk+-2.0`
 LD=gcc
-LDFLAGS= `pkg-config --cflags --libs gtk+-2.0`
+CFLAGS=--std=c99 --pedantic -Wall -W -Wmissing-prototypes
+LDFLAGS=--std=c99 --pedantic -Wall -W -Wmissing-prototypes
+GTKFLAGS=`pkg-config --cflags --libs gtk+-2.0`
 
 # Files
-EXEC=oxo doc
+EXEC=oxo
 
 ## Rules
 
 all: $(EXEC)
 
 oxo: main.o model.o vue.o controller.o
-	$(LD) -o oxo main.o model.o vue.o controller.o $(LDFLAGS)
+	$(LD) -o oxo main.o model.o vue.o controller.o $(LDFLAGS) $(GTKFLAGS)
 
 main.o: main.c
-	$(CC) -c main.c -o main.o $(CFLAGS)
+	$(CC) -c main.c -o main.o $(CFLAGS) $(GTKFLAGS)
 
 model.o: model.c
-	$(CC) -c model.c -o model.o $(CFLAGS)
+	$(CC) -c model.c -o model.o $(CFLAGS) $(GTKFLAGS)
 
 vue.o: vue.c
-	$(CC) -c vue.c -o vue.o $(CFLAGS)
+	$(CC) -c vue.c -o vue.o $(CFLAGS) $(GTKFLAGS)
 
 controller.o: controller.c
-	$(CC) -c controller.c -o controller.o $(CFLAGS)
+	$(CC) -c controller.c -o controller.o $(CFLAGS) $(GTKFLAGS)
 
 clean:
 	rm -f *.o oxo *~

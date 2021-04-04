@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['who_5fwins_33',['who_wins',['../model_8h.html#acd415199590879ba3b0091e4418cabb4',1,'model.c']]]
+  ['redraw_5fbutton_66',['redraw_button',['../vue_8h.html#ae3340613e9cc316ab1a8f627a83ea0f6',1,'vue.c']]],
+  ['redraw_5fwinning_5fbuttons_67',['redraw_winning_buttons',['../vue_8h.html#a9ccc97c80e52a32d02fde8eb7186cba1',1,'vue.c']]]
 ];

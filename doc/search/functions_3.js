@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['redraw_5fbutton_32',['redraw_button',['../vue_8h.html#ae3340613e9cc316ab1a8f627a83ea0f6',1,'vue.c']]]
+  ['load_5fimage_5fbutton_65',['load_image_button',['../vue_8h.html#ac16badf01fdf550d6ff29bc093f8b787',1,'vue.c']]]
 ];

@@ -4,7 +4,7 @@
  * Ce fichier contient les fonctions liées à l'affichage du jeu
  * 
  * @author: Dumoulin Peissone S193957
- * @date: 03/04/21
+ * @date: 04/04/21
  * @projet: INFO0030 Projet 3
  */
 
@@ -56,7 +56,7 @@ GtkButton *load_image_button(char *filename){
    GtkWidget *image = gtk_image_new_from_pixbuf(pb);
    gtk_button_set_image(GTK_BUTTON(pButton), image);
 
-   return pButton;
+   return (GtkButton *)pButton;
 }
 
 //Permet de changer l'image d'un bouton déjà existant
@@ -77,12 +77,13 @@ GtkButton *change_image_button(GtkButton *pButton, char *filename){
 }
 
 //Création des boutons et du tableau de boutons
-GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, Controller *c){
+GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, Controller *c){
    assert(pButton != NULL && c != NULL);
 
    for(int i = 0; i < 16; i++){
-      pButton[i] = load_image_button("images/default.png");
+      pButton[i] = (GtkWidget *)load_image_button("images/default.png");
       c->pButton[i] = pButton[i];
+
    }
 
    pButton[16] = gtk_button_new_with_label("Nouvelle Partie");
@@ -118,40 +119,43 @@ void redraw_button(Controller *c){
    assert(c != NULL);
 
    if(!c->m->turn && c->m->gameState){
-      change_image_button(c->pButton[c->pButtonNumber], "images/o.png");
+      change_image_button((GtkButton *)c->pButton[c->pButtonNumber], "images/o.png");
       c->m->board[c->pButtonNumber] = 'o';
    }else if(c->m->turn && c->m->gameState){
-      change_image_button(c->pButton[c->pButtonNumber], "images/x.png");
+      change_image_button((GtkButton *)c->pButton[c->pButtonNumber], "images/x.png");
       c->m->board[c->pButtonNumber] = 'x';
    }
+}
 
-   if(c->m->gameState){
-      int winningBlock[3] = {0, 1, 2};
-      switch(who_wins(c->m, winningBlock)){
-      case 0://égalité
-         printf("Neither player managed to get a win\n");
-         
-         break;
-      case -1://Le premier joueur a gagné
-         change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
-         change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
-         change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");
+void redraw_winning_buttons(Controller *c){
+   int winningBlock[3] = {0, 1, 2};
 
-         printf("Player 1 has won the game\n");
+   switch(who_wins(c->m, winningBlock)){
+   case 0://égalité
+      printf("Neither player managed to get a win\n");
+      
+      break;
+   case -1://Le premier joueur a gagné
+      change_image_button((GtkButton *)c->pButton[winningBlock[0]], "images/o_gagnant.png");
+      change_image_button((GtkButton *)c->pButton[winningBlock[1]], "images/x_gagnant.png");
+      change_image_button((GtkButton *)c->pButton[winningBlock[2]], "images/o_gagnant.png");
 
-         c->m->gameState = false;
+      printf("Player 1 has won the game\n");
 
-         break;
-      case 1://Le deuxième joueur a gagné
-         change_image_button(c->pButton[winningBlock[0]], "images/o_gagnant.png");
-         change_image_button(c->pButton[winningBlock[1]], "images/x_gagnant.png");
-         change_image_button(c->pButton[winningBlock[2]], "images/o_gagnant.png");
+      c->m->gameState = false;
 
-         printf("Player 2 has won the game\n");
+      break;
+   case 1://Le deuxième joueur a gagné
+      change_image_button((GtkButton *)c->pButton[winningBlock[0]], "images/o_gagnant.png");
+      change_image_button((GtkButton *)c->pButton[winningBlock[1]], "images/x_gagnant.png");
+      change_image_button((GtkButton *)c->pButton[winningBlock[2]], "images/o_gagnant.png");
 
-         c->m->gameState = false;
+      printf("Player 2 has won the game\n");
 
-         break;
-      }
+      c->m->gameState = false;
+
+      break;
+   default:
+      c->m->gameState = true;
    }
 }

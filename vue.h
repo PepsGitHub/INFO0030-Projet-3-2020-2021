@@ -4,7 +4,7 @@
  * Ce fichier contient les prototypes des fonctions liées à l'affichage du jeu
  * 
  * \author: Dumoulin Peissone S193957
- * \date: 03/04/21
+ * \date: 04/04/21
  * @projet: INFO0030 Projet 3
  */
 
@@ -13,7 +13,7 @@
  * \brief Librairie contenant les prototypes des fonctions liées à l'affichage du jeu
  * \author Peissone Dumoulin - Université de Liège
  * \version 1.0
- * \date 03/04/2021
+ * \date 04/04/2021
 */
 
 /*
@@ -33,6 +33,17 @@ typedef struct vue_t{
    Model *m;
 }Vue;
 
+/**
+ * \fn Vue *create_vue(Model *m)
+ * \brief Crée la vue
+ * 
+ * \param model le modèle
+ * 
+ * \pre m != NULL
+ * \post la vue est correctement créée
+ * 
+ * \return v Succès
+ */
 Vue *create_vue(Model *m);
 
 /**
@@ -41,11 +52,10 @@ Vue *create_vue(Model *m);
  * 
  * \param \
  * 
- * \pre: \
- * \post: la fenêtre est créée
+ * \pre \
+ * \post la fenêtre est créée
  * 
- * \return:
- *    pWindow Succès
+ * \return pWindow Succès
  */
 GtkWidget *create_window(void);
 
@@ -55,11 +65,10 @@ GtkWidget *create_window(void);
  * 
  * \param filename le nom de l'image à charger sur un bouton
  * 
- * \pre: filename != NULL
- * \post: le bouton est créé avec l'image
+ * \pre filename != NULL
+ * \post le bouton est créé avec l'image
  * 
- * \return:
- *    pButton Succès
+ * \return pButton Succès
  */
 GtkButton *load_image_button(char *filename);
 
@@ -70,11 +79,10 @@ GtkButton *load_image_button(char *filename);
  * \param pButton le bouton en question
  * \param filename le nom de l'image à charger sur un bouton
  * 
- * \pre: pButton != NULL, filename != NULL
- * \post: l'image du bouton est changée
+ * \pre pButton != NULL, filename != NULL
+ * \post l'image du bouton est changée
  * 
- * \return:
- *    pButton Succès
+ * \return pButton Succès
  */
 GtkButton *change_image_button(GtkButton *pButton, char *filename);
 
@@ -86,26 +94,37 @@ GtkButton *change_image_button(GtkButton *pButton, char *filename);
  * \param pButton un tableau de boutons
  * \param c le controlleur
  * 
- * \pre: pButton != NULL, c != NULL
- * \post: le tableau de boutons est créé
+ * \pre pButton != NULL, c != NULL
+ * \post le tableau de boutons est créé
  * 
- * \return:
- *    pTable Succès
+ * \return pTable Succès
  */
-GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, struct controller_t *c);
+GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, struct controller_t *c);
 
 /**
  * \fn void redraw_button(struct controller_t *c)
- * \brief //Redessine le bouton qui vient d'être cliqué
+ * \brief Redessine le bouton qui vient d'être cliqué
  * 
  * \param c le controlleur
  * 
- * \pre: c != NULL
- * \post: le bouton est redessiné
+ * \pre c != NULL
+ * \post le bouton est redessiné
  * 
- * \return:
- *    /
+ * \return /
  */
 void redraw_button(struct controller_t *c);
+
+/**
+ * \fn void redraw_winning_buttons(struct controller_t *c)
+ * \brief Redessine les boutons de la combinaison gagnante
+ * 
+ * \param c le controlleur
+ * 
+ * \pre c != NULL
+ * \post les boutons de la combinaison gagnante sont redessinés
+ * 
+ * \return /
+ */
+void redraw_winning_buttons(struct controller_t *c);
 
 #endif // __vue__
