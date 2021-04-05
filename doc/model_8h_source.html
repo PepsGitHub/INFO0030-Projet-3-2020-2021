@@ -97,39 +97,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="model_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * Include guard (pour éviter les problèmes d&#39;inclusions multiples</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * Bonne pratique: toujours encadrer un header avec un include guard</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef __MODEL__</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define __MODEL__</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;gtk/gtk.h&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structmodel__t.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structmodel__t.html">model_t</a>{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;   <span class="keywordtype">bool</span> turn;<span class="comment">//tour du joueur: false: premier joueur &#39;o&#39;, true: deuxième joueur &#39;x&#39;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;   <span class="keywordtype">bool</span> gameState;<span class="comment">//état du jeu: true: partie en cours, false: partie terminée</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;   <span class="keywordtype">int</span> winner; <span class="comment">//gagnant: -2: on ne sait pas encore, -1: premier joueur, 0: égalité, 1; deuxième joueur</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;   <span class="keywordtype">char</span> board[16];<span class="comment">//état du plateau de jeu, 0: pas encore cliqué, &#39;o&#39; ou &#39;x&#39;: cliqué</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}<a class="code" href="structmodel__t.html">Model</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="structmodel__t.html">Model</a> *<a class="code" href="model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1">create_model</a>(<span class="keywordtype">bool</span> turn, <span class="keywordtype">bool</span> gameState, <span class="keywordtype">int</span> winner);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">bool</span> check_game_status(<span class="keyword">const</span> <span class="keywordtype">int</span> direction[24][3], <span class="keywordtype">int</span> *winningBlock, <a class="code" href="structmodel__t.html">Model</a> *m);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">int</span> <a class="code" href="model_8h.html#acd415199590879ba3b0091e4418cabb4">who_wins</a>(<a class="code" href="structmodel__t.html">Model</a> *m, <span class="keywordtype">int</span> *winningBlocks);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">is_board_full</a>(<a class="code" href="structmodel__t.html">Model</a> *m);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif // __model__</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Include guard (pour éviter les problèmes d&#39;inclusions multiples</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * Bonne pratique: toujours encadrer un header avec un include guard</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef __MODEL__</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define __MODEL__</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;gtk/gtk.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structmodel__t.html">model_t</a> <a class="code" href="structmodel__t.html">Model</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<a class="code" href="structmodel__t.html">Model</a> *<a class="code" href="model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1">create_model</a>(<span class="keywordtype">bool</span> turn, <span class="keywordtype">bool</span> gameState, <span class="keywordtype">int</span> winner);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="model_8h.html#a2af3c4de2e0d467efbe0af08938ec398">get_turn</a>(<a class="code" href="structmodel__t.html">Model</a> *m);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="model_8h.html#a6d044c9169b17610512bf94a38cd4b14">get_gameState</a>(<a class="code" href="structmodel__t.html">Model</a> *m);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">int</span> <a class="code" href="model_8h.html#a18f54901236f7608783d33c58b06590b">get_winner</a>(<a class="code" href="structmodel__t.html">Model</a> *m);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">char</span> *<a class="code" href="model_8h.html#a68053a372aa4dd646ecb480ccc8ab740">get_board</a>(<a class="code" href="structmodel__t.html">Model</a> *m);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<a class="code" href="structmodel__t.html">Model</a> *<a class="code" href="model_8h.html#ad75513131ca19b89957fa1383cbba109">set_turn</a>(<a class="code" href="structmodel__t.html">Model</a> *m, <span class="keywordtype">bool</span> turn);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<a class="code" href="structmodel__t.html">Model</a> *<a class="code" href="model_8h.html#a7a8432df0588e6f530a32867a2f216f3">set_gameState</a>(<a class="code" href="structmodel__t.html">Model</a> *m, <span class="keywordtype">bool</span> gameState);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<a class="code" href="structmodel__t.html">Model</a> *<a class="code" href="model_8h.html#ac785702546b275ff1b36c7dcd7288a4e">set_winner</a>(<a class="code" href="structmodel__t.html">Model</a> *m, <span class="keywordtype">int</span> winner);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<a class="code" href="structmodel__t.html">Model</a> *<a class="code" href="model_8h.html#a47316ab100aa4b568b5836520a5fd599">set_board</a>(<a class="code" href="structmodel__t.html">Model</a> *m, <span class="keywordtype">char</span> board[16]);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">bool</span> check_game_status(<span class="keyword">const</span> <span class="keywordtype">int</span> direction[24][3], <span class="keywordtype">int</span> *winningBlock, <a class="code" href="structmodel__t.html">Model</a> *m);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keywordtype">int</span> <a class="code" href="model_8h.html#acd415199590879ba3b0091e4418cabb4">who_wins</a>(<a class="code" href="structmodel__t.html">Model</a> *m, <span class="keywordtype">int</span> *winningBlocks);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">is_board_full</a>(<a class="code" href="structmodel__t.html">Model</a> *m);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#endif // __model__</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructmodel__t_html"><div class="ttname"><a href="structmodel__t.html">model_t</a></div><div class="ttdef"><b>Definition:</b> model.h:31</div></div>
-<div class="ttc" id="amodel_8h_html_acd415199590879ba3b0091e4418cabb4"><div class="ttname"><a href="model_8h.html#acd415199590879ba3b0091e4418cabb4">who_wins</a></div><div class="ttdeci">int who_wins(Model *m, int *winningBlocks)</div><div class="ttdoc">Check qui gagne.</div><div class="ttdef"><b>Definition:</b> model.c:61</div></div>
-<div class="ttc" id="amodel_8h_html_a0acdbd806dbdb6c6063bba338ff992d1"><div class="ttname"><a href="model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1">create_model</a></div><div class="ttdeci">Model * create_model(bool turn, bool gameState, int winner)</div><div class="ttdoc">Crée le modèle.</div><div class="ttdef"><b>Definition:</b> model.c:17</div></div>
-<div class="ttc" id="amodel_8h_html_a519928143bf74e855a1f0ae95b10c2e3"><div class="ttname"><a href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">is_board_full</a></div><div class="ttdeci">bool is_board_full(Model *m)</div><div class="ttdoc">//Check si le plateau est remplit ou pas</div><div class="ttdef"><b>Definition:</b> model.c:79</div></div>
+<div class="ttc" id="astructmodel__t_html"><div class="ttname"><a href="structmodel__t.html">model_t</a></div><div class="ttdef"><b>Definition:</b> model.c:19</div></div>
+<div class="ttc" id="amodel_8h_html_ad75513131ca19b89957fa1383cbba109"><div class="ttname"><a href="model_8h.html#ad75513131ca19b89957fa1383cbba109">set_turn</a></div><div class="ttdeci">Model * set_turn(Model *m, bool turn)</div><div class="ttdoc">Accesseur en écriture pour le champ turn.</div><div class="ttdef"><b>Definition:</b> model.c:71</div></div>
+<div class="ttc" id="amodel_8h_html_a7a8432df0588e6f530a32867a2f216f3"><div class="ttname"><a href="model_8h.html#a7a8432df0588e6f530a32867a2f216f3">set_gameState</a></div><div class="ttdeci">Model * set_gameState(Model *m, bool gameState)</div><div class="ttdoc">Accesseur en écriture pour le champ gameState.</div><div class="ttdef"><b>Definition:</b> model.c:79</div></div>
+<div class="ttc" id="amodel_8h_html_acd415199590879ba3b0091e4418cabb4"><div class="ttname"><a href="model_8h.html#acd415199590879ba3b0091e4418cabb4">who_wins</a></div><div class="ttdeci">int who_wins(Model *m, int *winningBlocks)</div><div class="ttdoc">Check qui gagne.</div><div class="ttdef"><b>Definition:</b> model.c:134</div></div>
+<div class="ttc" id="amodel_8h_html_a47316ab100aa4b568b5836520a5fd599"><div class="ttname"><a href="model_8h.html#a47316ab100aa4b568b5836520a5fd599">set_board</a></div><div class="ttdeci">Model * set_board(Model *m, char board[16])</div><div class="ttdoc">Accesseur en écriture pour le champ winner.</div><div class="ttdef"><b>Definition:</b> model.c:95</div></div>
+<div class="ttc" id="amodel_8h_html_a18f54901236f7608783d33c58b06590b"><div class="ttname"><a href="model_8h.html#a18f54901236f7608783d33c58b06590b">get_winner</a></div><div class="ttdeci">int get_winner(Model *m)</div><div class="ttdoc">Accesseur en lecture pour le champ winner.</div><div class="ttdef"><b>Definition:</b> model.c:58</div></div>
+<div class="ttc" id="amodel_8h_html_a68053a372aa4dd646ecb480ccc8ab740"><div class="ttname"><a href="model_8h.html#a68053a372aa4dd646ecb480ccc8ab740">get_board</a></div><div class="ttdeci">char * get_board(Model *m)</div><div class="ttdoc">Accesseur en lecture pour le champ board.</div><div class="ttdef"><b>Definition:</b> model.c:64</div></div>
+<div class="ttc" id="amodel_8h_html_ac785702546b275ff1b36c7dcd7288a4e"><div class="ttname"><a href="model_8h.html#ac785702546b275ff1b36c7dcd7288a4e">set_winner</a></div><div class="ttdeci">Model * set_winner(Model *m, int winner)</div><div class="ttdoc">Accesseur en écriture pour le champ winner.</div><div class="ttdef"><b>Definition:</b> model.c:87</div></div>
+<div class="ttc" id="amodel_8h_html_a0acdbd806dbdb6c6063bba338ff992d1"><div class="ttname"><a href="model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1">create_model</a></div><div class="ttdeci">Model * create_model(bool turn, bool gameState, int winner)</div><div class="ttdoc">Crée le modèle.</div><div class="ttdef"><b>Definition:</b> model.c:27</div></div>
+<div class="ttc" id="amodel_8h_html_a519928143bf74e855a1f0ae95b10c2e3"><div class="ttname"><a href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">is_board_full</a></div><div class="ttdeci">bool is_board_full(Model *m)</div><div class="ttdoc">//Check si le plateau est remplit ou pas</div><div class="ttdef"><b>Definition:</b> model.c:152</div></div>
+<div class="ttc" id="amodel_8h_html_a6d044c9169b17610512bf94a38cd4b14"><div class="ttname"><a href="model_8h.html#a6d044c9169b17610512bf94a38cd4b14">get_gameState</a></div><div class="ttdeci">bool get_gameState(Model *m)</div><div class="ttdoc">Accesseur en lecture pour le champ gameState.</div><div class="ttdef"><b>Definition:</b> model.c:52</div></div>
+<div class="ttc" id="amodel_8h_html_a2af3c4de2e0d467efbe0af08938ec398"><div class="ttname"><a href="model_8h.html#a2af3c4de2e0d467efbe0af08938ec398">get_turn</a></div><div class="ttdeci">bool get_turn(Model *m)</div><div class="ttdoc">Accesseur en lecture pour le champ turn.</div><div class="ttdef"><b>Definition:</b> model.c:46</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

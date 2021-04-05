@@ -97,50 +97,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="vue_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * Include guard (pour éviter les problèmes d&#39;inclusions multiples</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * Bonne pratique: toujours encadrer un header avec un include guard</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef __VUE__</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define __VUE__</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;gtk/gtk.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="model_8h.html">model.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controller_8h.html">controller.h</a>&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structvue__t.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structvue__t.html">vue_t</a>{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;   <a class="code" href="structmodel__t.html">Model</a> *m;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}<a class="code" href="structvue__t.html">Vue</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Include guard (pour éviter les problèmes d&#39;inclusions multiples</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * Bonne pratique: toujours encadrer un header avec un include guard</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef __VUE__</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define __VUE__</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;gtk/gtk.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="model_8h.html">model.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controller_8h.html">controller.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structvue__t.html">vue_t</a> <a class="code" href="structvue__t.html">Vue</a>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<a class="code" href="structvue__t.html">Vue</a> *<a class="code" href="vue_8h.html#a4fdadf9b6d48dd2af5f231894b490aad">create_vue</a>(<a class="code" href="structmodel__t.html">Model</a> *m);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;GtkWidget *<a class="code" href="vue_8h.html#aca82692e3cdaff089bbfc7f3c9f69603">create_window</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<a class="code" href="structmodel__t.html">Model</a> *<a class="code" href="vue_8h.html#a1158dcb58c4c474d31f1f6d7e6254d25">get_model</a>(<a class="code" href="structvue__t.html">Vue</a> *v);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;GtkButton *<a class="code" href="vue_8h.html#ac16badf01fdf550d6ff29bc093f8b787">load_image_button</a>(<span class="keywordtype">char</span> *filename);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;GtkButton *<a class="code" href="vue_8h.html#ae2307cb69fe1f94845e44a0d8af46a8f">change_image_button</a>(GtkButton *pButton, <span class="keywordtype">char</span> *filename);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<a class="code" href="structvue__t.html">Vue</a> *set_model(<a class="code" href="structvue__t.html">Vue</a> *v, <a class="code" href="structmodel__t.html">Model</a> *m);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;GtkWidget *<a class="code" href="vue_8h.html#aca82692e3cdaff089bbfc7f3c9f69603">create_window</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, <span class="keyword">struct</span> <a class="code" href="structcontroller__t.html">controller_t</a> *c);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">void</span> <a class="code" href="vue_8h.html#ae3340613e9cc316ab1a8f627a83ea0f6">redraw_button</a>(<span class="keyword">struct</span> <a class="code" href="structcontroller__t.html">controller_t</a> *c);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keywordtype">void</span> <a class="code" href="vue_8h.html#a9ccc97c80e52a32d02fde8eb7186cba1">redraw_winning_buttons</a>(<span class="keyword">struct</span> <a class="code" href="structcontroller__t.html">controller_t</a> *c);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif // __vue__</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;GtkButton *<a class="code" href="vue_8h.html#ac16badf01fdf550d6ff29bc093f8b787">load_image_button</a>(<span class="keywordtype">char</span> *filename);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;GtkButton *<a class="code" href="vue_8h.html#ae2307cb69fe1f94845e44a0d8af46a8f">change_image_button</a>(GtkButton *pButton, <span class="keywordtype">char</span> *filename);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, <span class="keyword">struct</span> <a class="code" href="structcontroller__t.html">controller_t</a> *c);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">void</span> <a class="code" href="vue_8h.html#ae3340613e9cc316ab1a8f627a83ea0f6">redraw_button</a>(<span class="keyword">struct</span> <a class="code" href="structcontroller__t.html">controller_t</a> *c);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordtype">void</span> <a class="code" href="vue_8h.html#a9ccc97c80e52a32d02fde8eb7186cba1">redraw_winning_buttons</a>(<span class="keyword">struct</span> <a class="code" href="structcontroller__t.html">controller_t</a> *c);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#endif // __vue__</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructmodel__t_html"><div class="ttname"><a href="structmodel__t.html">model_t</a></div><div class="ttdef"><b>Definition:</b> model.h:31</div></div>
-<div class="ttc" id="astructcontroller__t_html"><div class="ttname"><a href="structcontroller__t.html">controller_t</a></div><div class="ttdef"><b>Definition:</b> controller.h:32</div></div>
-<div class="ttc" id="avue_8h_html_ae3340613e9cc316ab1a8f627a83ea0f6"><div class="ttname"><a href="vue_8h.html#ae3340613e9cc316ab1a8f627a83ea0f6">redraw_button</a></div><div class="ttdeci">void redraw_button(struct controller_t *c)</div><div class="ttdoc">Redessine le bouton qui vient d'être cliqué</div><div class="ttdef"><b>Definition:</b> vue.c:118</div></div>
+<div class="ttc" id="astructmodel__t_html"><div class="ttname"><a href="structmodel__t.html">model_t</a></div><div class="ttdef"><b>Definition:</b> model.c:19</div></div>
+<div class="ttc" id="astructcontroller__t_html"><div class="ttname"><a href="structcontroller__t.html">controller_t</a></div><div class="ttdef"><b>Definition:</b> controller.c:18</div></div>
+<div class="ttc" id="avue_8h_html_ae3340613e9cc316ab1a8f627a83ea0f6"><div class="ttname"><a href="vue_8h.html#ae3340613e9cc316ab1a8f627a83ea0f6">redraw_button</a></div><div class="ttdeci">void redraw_button(struct controller_t *c)</div><div class="ttdoc">Redessine le bouton qui vient d'être cliqué</div><div class="ttdef"><b>Definition:</b> vue.c:139</div></div>
 <div class="ttc" id="amodel_8h_html"><div class="ttname"><a href="model_8h.html">model.h</a></div><div class="ttdoc">Librairie contenant les prototypes des fonctions liées aux mécanismes du jeu.</div></div>
+<div class="ttc" id="avue_8h_html_a1158dcb58c4c474d31f1f6d7e6254d25"><div class="ttname"><a href="vue_8h.html#a1158dcb58c4c474d31f1f6d7e6254d25">get_model</a></div><div class="ttdeci">Model * get_model(Vue *v)</div><div class="ttdoc">Accesseur en lecture pour le champ m.</div><div class="ttdef"><b>Definition:</b> vue.c:37</div></div>
 <div class="ttc" id="acontroller_8h_html"><div class="ttname"><a href="controller_8h.html">controller.h</a></div><div class="ttdoc">Librairie contenant les prototypes des fonctions liées aux actions de l'utilisateur.</div></div>
-<div class="ttc" id="avue_8h_html_a9ccc97c80e52a32d02fde8eb7186cba1"><div class="ttname"><a href="vue_8h.html#a9ccc97c80e52a32d02fde8eb7186cba1">redraw_winning_buttons</a></div><div class="ttdeci">void redraw_winning_buttons(struct controller_t *c)</div><div class="ttdoc">Redessine les boutons de la combinaison gagnante.</div><div class="ttdef"><b>Definition:</b> vue.c:130</div></div>
-<div class="ttc" id="avue_8h_html_ac16badf01fdf550d6ff29bc093f8b787"><div class="ttname"><a href="vue_8h.html#ac16badf01fdf550d6ff29bc093f8b787">load_image_button</a></div><div class="ttdeci">GtkButton * load_image_button(char *filename)</div><div class="ttdoc">Création d'un bouton avec image.</div><div class="ttdef"><b>Definition:</b> vue.c:41</div></div>
-<div class="ttc" id="avue_8h_html_ae2307cb69fe1f94845e44a0d8af46a8f"><div class="ttname"><a href="vue_8h.html#ae2307cb69fe1f94845e44a0d8af46a8f">change_image_button</a></div><div class="ttdeci">GtkButton * change_image_button(GtkButton *pButton, char *filename)</div><div class="ttdoc">Permet de changer l'image d'un bouton déjà existant.</div><div class="ttdef"><b>Definition:</b> vue.c:63</div></div>
-<div class="ttc" id="astructvue__t_html"><div class="ttname"><a href="structvue__t.html">vue_t</a></div><div class="ttdef"><b>Definition:</b> vue.h:32</div></div>
-<div class="ttc" id="avue_8h_html_a4fdadf9b6d48dd2af5f231894b490aad"><div class="ttname"><a href="vue_8h.html#a4fdadf9b6d48dd2af5f231894b490aad">create_vue</a></div><div class="ttdeci">Vue * create_vue(Model *m)</div><div class="ttdoc">Crée la vue.</div><div class="ttdef"><b>Definition:</b> vue.c:17</div></div>
-<div class="ttc" id="avue_8h_html_aca82692e3cdaff089bbfc7f3c9f69603"><div class="ttname"><a href="vue_8h.html#aca82692e3cdaff089bbfc7f3c9f69603">create_window</a></div><div class="ttdeci">GtkWidget * create_window(void)</div><div class="ttdoc">Crée la fenêtre.</div><div class="ttdef"><b>Definition:</b> vue.c:30</div></div>
+<div class="ttc" id="avue_8h_html_a9ccc97c80e52a32d02fde8eb7186cba1"><div class="ttname"><a href="vue_8h.html#a9ccc97c80e52a32d02fde8eb7186cba1">redraw_winning_buttons</a></div><div class="ttdeci">void redraw_winning_buttons(struct controller_t *c)</div><div class="ttdoc">Redessine les boutons de la combinaison gagnante.</div><div class="ttdef"><b>Definition:</b> vue.c:156</div></div>
+<div class="ttc" id="avue_8h_html_ac16badf01fdf550d6ff29bc093f8b787"><div class="ttname"><a href="vue_8h.html#ac16badf01fdf550d6ff29bc093f8b787">load_image_button</a></div><div class="ttdeci">GtkButton * load_image_button(char *filename)</div><div class="ttdoc">Création d'un bouton avec image.</div><div class="ttdef"><b>Definition:</b> vue.c:64</div></div>
+<div class="ttc" id="avue_8h_html_ae2307cb69fe1f94845e44a0d8af46a8f"><div class="ttname"><a href="vue_8h.html#ae2307cb69fe1f94845e44a0d8af46a8f">change_image_button</a></div><div class="ttdeci">GtkButton * change_image_button(GtkButton *pButton, char *filename)</div><div class="ttdoc">Permet de changer l'image d'un bouton déjà existant.</div><div class="ttdef"><b>Definition:</b> vue.c:86</div></div>
+<div class="ttc" id="astructvue__t_html"><div class="ttname"><a href="structvue__t.html">vue_t</a></div><div class="ttdef"><b>Definition:</b> vue.c:19</div></div>
+<div class="ttc" id="avue_8h_html_a4fdadf9b6d48dd2af5f231894b490aad"><div class="ttname"><a href="vue_8h.html#a4fdadf9b6d48dd2af5f231894b490aad">create_vue</a></div><div class="ttdeci">Vue * create_vue(Model *m)</div><div class="ttdoc">Crée la vue.</div><div class="ttdef"><b>Definition:</b> vue.c:24</div></div>
+<div class="ttc" id="avue_8h_html_aca82692e3cdaff089bbfc7f3c9f69603"><div class="ttname"><a href="vue_8h.html#aca82692e3cdaff089bbfc7f3c9f69603">create_window</a></div><div class="ttdeci">GtkWidget * create_window(void)</div><div class="ttdoc">Crée la fenêtre.</div><div class="ttdef"><b>Definition:</b> vue.c:53</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

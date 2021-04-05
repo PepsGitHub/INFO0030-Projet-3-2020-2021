@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['load_5fimage_5fbutton_65',['load_image_button',['../vue_8h.html#ac16badf01fdf550d6ff29bc093f8b787',1,'vue.c']]]
+  ['is_5fboard_5ffull_90',['is_board_full',['../model_8h.html#a519928143bf74e855a1f0ae95b10c2e3',1,'model.c']]],
+  ['is_5fbutton_5fclicked_91',['is_button_clicked',['../controller_8h.html#a9363dff241368000d542431ddbfbbf32',1,'controller.c']]]
 ];

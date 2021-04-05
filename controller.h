@@ -409,6 +409,21 @@ void click_button_15(GtkWidget *pButton, gpointer data);
 void click_new_game(GtkWidget *pButton, gpointer data);
 
 /**
+ * \fn bool is_button_clicked(Controller *c, unsigned int buttonNumber)
+ * \brief Permet de savoir si le bouton en question a déjà été cliqué
+ * 
+ * \param c le controlleur
+ * \param buttonNumber le numéro du bouton
+ * 
+ * \pre c != NULL
+ * \post on connait l'état du bouton
+ * 
+ * \return true bouton déjà cliqué
+ * \return false bouton pas encore cliqué
+ */
+bool is_button_clicked(Controller *c, unsigned int buttonNumber);
+
+/**
  * \fn void destroy_window(GtkWidget *pWindow, gpointer data)
  * \brief Détruit la fenêtre
  * 
@@ -416,7 +431,7 @@ void click_new_game(GtkWidget *pButton, gpointer data);
  * \param data le type de données
  * 
  * \pre \
- * \post: la fenêtre est détruite
+ * \post la fenêtre est détruite
  * 
  * \return \
  */

@@ -99,6 +99,8 @@ Controller *create_controller(Vue *v, Model *m){
    set_buttons(c, Buttons);
    set_buttonNumber(c, 0);
 
+   free(Buttons);
+
    return c;
 }
 
@@ -309,9 +311,7 @@ void click_new_game(GtkWidget *pButton, gpointer data){
 
    set_buttonNumber(c, 16);
    char *board = malloc(16 * sizeof(char));
-   GtkButton **pButtons = (GtkButton **)malloc(17 * sizeof(GtkButton *));
-   
-   pButtons = (GtkButton **)get_buttons(c);
+   GtkButton **pButtons = (GtkButton **)get_buttons(c);
 
    for(int i = 0; i < 16; i++){
       board[i] = 0;
@@ -325,6 +325,15 @@ void click_new_game(GtkWidget *pButton, gpointer data){
    set_gameState(get_model_c(c), true);
 
    free(board);
+}
+
+bool is_button_clicked(Controller *c, unsigned int buttonNumber){
+   assert(c != NULL);
+
+   if(get_board(get_model_c(c))[buttonNumber] == 0)
+      return false;
+   else
+      return true;
 }
 
 //Détruit la fenêtre

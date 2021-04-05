@@ -142,10 +142,10 @@ void redraw_button(Controller *c){
    char *board = get_board(get_model_c(c));
    GtkWidget **pButtons = get_buttons(c);
 
-   if(!get_turn(get_model_c(c)) && get_gameState(get_model_c(c))){
+   if(!get_turn(get_model_c(c)) && get_gameState(get_model_c(c)) && !is_button_clicked(c, get_pButtonNumber(c))){
       change_image_button((GtkButton *)pButtons[get_pButtonNumber(c)], "images/o.png");
       board[get_pButtonNumber(c)] = 'o';
-   }else if(get_turn(get_model_c(c)) && get_gameState(get_model_c(c))){
+   }else if(get_turn(get_model_c(c)) && get_gameState(get_model_c(c)) && !is_button_clicked(c, get_pButtonNumber(c))){
       change_image_button((GtkButton *)pButtons[get_pButtonNumber(c)], "images/x.png");
       board[get_pButtonNumber(c)] = 'x';
    }
@@ -176,8 +176,8 @@ void redraw_winning_buttons(Controller *c){
       break;
    case 1://Le deuxième joueur a gagné
       change_image_button((GtkButton *)pButtons[winningBlock[0]], "images/o_gagnant.png");
-      change_image_button((GtkButton *)pButtons[winningBlock[0]], "images/x_gagnant.png");
-      change_image_button((GtkButton *)pButtons[winningBlock[0]], "images/o_gagnant.png");
+      change_image_button((GtkButton *)pButtons[winningBlock[1]], "images/x_gagnant.png");
+      change_image_button((GtkButton *)pButtons[winningBlock[2]], "images/o_gagnant.png");
 
       set_buttons(c, pButtons);
 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['signal_5fconnect_68',['signal_connect',['../controller_8h.html#ad48b39520f51de54fa91301e5912d9d8',1,'controller.c']]]
+  ['redraw_5fbutton_93',['redraw_button',['../vue_8h.html#ae3340613e9cc316ab1a8f627a83ea0f6',1,'vue.c']]],
+  ['redraw_5fwinning_5fbuttons_94',['redraw_winning_buttons',['../vue_8h.html#a9ccc97c80e52a32d02fde8eb7186cba1',1,'vue.c']]]
 ];
