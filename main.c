@@ -54,10 +54,6 @@ int main(int argc, char **argv){
    gtk_widget_show_all(pWindow);
 
    gtk_main();
-
-   free(c);
-   free(v);
-   free(m);
-
+   
    return EXIT_SUCCESS;
 }

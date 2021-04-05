@@ -39,8 +39,6 @@ Model *create_model(bool turn, bool gameState, int winner){
    set_winner(m, winner);
    set_board(m, board);
 
-   free(board);
-
    return m;
 }
 

@@ -324,7 +324,6 @@ void click_new_game(GtkWidget *pButton, gpointer data){
    set_winner(get_model_c(c), -2);
    set_gameState(get_model_c(c), true);
 
-   free(pButtons);
    free(board);
 }
 
