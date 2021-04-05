@@ -8,14 +8,6 @@
  * @projet: INFO0030 Projet 3
  */
 
-/**
- * \file vue.h
- * \brief Librairie contenant les prototypes des fonctions liées à l'affichage du jeu
- * \author Peissone Dumoulin - Université de Liège
- * \version 1.0
- * \date 04/04/2021
-*/
-
 /*
  * Include guard (pour éviter les problèmes d'inclusions multiples
  * Bonne pratique: toujours encadrer un header avec un include guard
@@ -29,9 +21,17 @@
 #include "model.h"
 #include "controller.h"
 
-typedef struct vue_t{
-   Model *m;
-}Vue;
+/**
+ * \file vue.h
+ * \brief Librairie contenant les prototypes des fonctions liées à l'affichage du jeu
+ * \author Peissone Dumoulin - Université de Liège
+ * \version 1.0
+ * \date 04/04/2021
+ * 
+ * Déclaration du type opaque Vue
+ *
+ */
+typedef struct vue_t Vue;
 
 /**
  * \fn Vue *create_vue(Model *m)
@@ -45,6 +45,33 @@ typedef struct vue_t{
  * \return v Succès
  */
 Vue *create_vue(Model *m);
+
+/**
+ * \fn Model *get_model(Vue *v)
+ * \brief Accesseur en lecture pour le champ m
+ * 
+ * \param v la vue
+ * 
+ * \pre v != NULL
+ * \post le champ est lu
+ * 
+ * \return v->m Succès
+ */
+Model *get_model(Vue *v);
+
+/**
+ * \fn Vue *set_model(Vue *v)
+ * \brief Accesseur en écriture pour le champ m
+ * 
+ * \param v la vue
+ * \param m le modèle
+ * 
+ * \pre v != NULL, m != NULL
+ * \post le champ est modifié
+ * 
+ * \return v Succès
+ */
+Vue *set_model(Vue *v, Model *m);
 
 /**
  * \fn GtkWidget *create_window(void)

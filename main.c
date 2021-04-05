@@ -34,7 +34,6 @@ int main(int argc, char **argv){
    //Lancement de l'IHM
    GtkWidget *pWindow;
    GtkWidget *pTable;
-   GtkWidget *pButton[17];
 
    //Init de GTK
    gtk_init(&argc, &argv);
@@ -44,10 +43,10 @@ int main(int argc, char **argv){
 
    //Création des boutons pour l'initialisation de la fenêtre
    pTable = gtk_table_new(4, 5, FALSE);
-   create_and_attach_buttons(pTable, pButton, c);
+   create_and_attach_buttons(pTable, get_buttons(c), c);
 
    //Gestion des évènements
-   if(c->m->gameState)
+   if(get_gameState(get_model_c(c)))
       signal_connect(c);
 
    //Ajout des éléments à la fenêtre
@@ -55,6 +54,10 @@ int main(int argc, char **argv){
    gtk_widget_show_all(pWindow);
 
    gtk_main();
+
+   free(c);
+   free(v);
+   free(m);
 
    return EXIT_SUCCESS;
 }

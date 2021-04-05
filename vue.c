@@ -13,6 +13,13 @@
 
 #include "vue.h"
 
+/**
+ * Définition du type opaque Vue
+ */
+struct vue_t{
+   Model *m;//Le modèle
+};
+
 //Création de la vue
 Vue *create_vue(Model *m){
    assert(m != NULL);
@@ -21,10 +28,26 @@ Vue *create_vue(Model *m){
    if(v == NULL)
       return NULL;
 
-   v->m = m;
+   set_model(v, m);
 
    return v;
 }
+
+//debut accesseurs en lecture
+Model *get_model(Vue *v){
+   assert(v != NULL);
+
+   return v->m;
+}//fin accesseurs en lecture
+
+//debut accesseurs en écriture
+Vue *set_model(Vue *v, Model *m){
+   assert(v != NULL && m != NULL);
+
+   v->m = m;
+
+   return v;
+}//fin accesseurs en écriture
 
 //Création de la fenêtre
 GtkWidget *create_window(){
@@ -80,14 +103,12 @@ GtkButton *change_image_button(GtkButton *pButton, char *filename){
 GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, Controller *c){
    assert(pButton != NULL && c != NULL);
 
-   for(int i = 0; i < 16; i++){
+   for(int i = 0; i < 16; i++)
       pButton[i] = (GtkWidget *)load_image_button("images/default.png");
-      c->pButton[i] = pButton[i];
-
-   }
 
    pButton[16] = gtk_button_new_with_label("Nouvelle Partie");
-   c->pButton[16] = pButton[16];
+
+   set_buttons(c, pButton);
 
    gtk_table_attach(GTK_TABLE(pTable), pButton[0], 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
    gtk_table_attach(GTK_TABLE(pTable), pButton[1], 1, 2, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
@@ -118,44 +139,54 @@ GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkWidget **pButton, Con
 void redraw_button(Controller *c){
    assert(c != NULL);
 
-   if(!c->m->turn && c->m->gameState){
-      change_image_button((GtkButton *)c->pButton[c->pButtonNumber], "images/o.png");
-      c->m->board[c->pButtonNumber] = 'o';
-   }else if(c->m->turn && c->m->gameState){
-      change_image_button((GtkButton *)c->pButton[c->pButtonNumber], "images/x.png");
-      c->m->board[c->pButtonNumber] = 'x';
+   char *board = get_board(get_model_c(c));
+   GtkWidget **pButtons = get_buttons(c);
+
+   if(!get_turn(get_model_c(c)) && get_gameState(get_model_c(c))){
+      change_image_button((GtkButton *)pButtons[get_pButtonNumber(c)], "images/o.png");
+      board[get_pButtonNumber(c)] = 'o';
+   }else if(get_turn(get_model_c(c)) && get_gameState(get_model_c(c))){
+      change_image_button((GtkButton *)pButtons[get_pButtonNumber(c)], "images/x.png");
+      board[get_pButtonNumber(c)] = 'x';
    }
+
+   set_board(get_model_c(c), board);
 }
 
 void redraw_winning_buttons(Controller *c){
    int winningBlock[3] = {0, 1, 2};
+   GtkWidget **pButtons = get_buttons(c);
 
-   switch(who_wins(c->m, winningBlock)){
+   switch(who_wins(get_model_c(c), winningBlock)){
    case 0://égalité
       printf("Neither player managed to get a win\n");
       
       break;
    case -1://Le premier joueur a gagné
-      change_image_button((GtkButton *)c->pButton[winningBlock[0]], "images/o_gagnant.png");
-      change_image_button((GtkButton *)c->pButton[winningBlock[1]], "images/x_gagnant.png");
-      change_image_button((GtkButton *)c->pButton[winningBlock[2]], "images/o_gagnant.png");
+      change_image_button((GtkButton *)pButtons[winningBlock[0]], "images/o_gagnant.png");
+      change_image_button((GtkButton *)pButtons[winningBlock[1]], "images/x_gagnant.png");
+      change_image_button((GtkButton *)pButtons[winningBlock[2]], "images/o_gagnant.png");
+
+      set_buttons(c, pButtons);
 
       printf("Player 1 has won the game\n");
 
-      c->m->gameState = false;
+      set_gameState(get_model_c(c), false);
 
       break;
    case 1://Le deuxième joueur a gagné
-      change_image_button((GtkButton *)c->pButton[winningBlock[0]], "images/o_gagnant.png");
-      change_image_button((GtkButton *)c->pButton[winningBlock[1]], "images/x_gagnant.png");
-      change_image_button((GtkButton *)c->pButton[winningBlock[2]], "images/o_gagnant.png");
+      change_image_button((GtkButton *)pButtons[winningBlock[0]], "images/o_gagnant.png");
+      change_image_button((GtkButton *)pButtons[winningBlock[0]], "images/x_gagnant.png");
+      change_image_button((GtkButton *)pButtons[winningBlock[0]], "images/o_gagnant.png");
+
+      set_buttons(c, pButtons);
 
       printf("Player 2 has won the game\n");
 
-      c->m->gameState = false;
+      set_gameState(get_model_c(c), false);
 
       break;
    default:
-      c->m->gameState = true;
+      set_gameState(get_model_c(c), true);
    }
 }

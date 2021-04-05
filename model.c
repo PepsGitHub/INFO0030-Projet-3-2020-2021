@@ -13,21 +13,95 @@
 
 #include "model.h"
 
+/**
+ * Définition du type opaque Model
+ */
+struct model_t{
+   bool turn;//tour du joueur: false: premier joueur 'o', true: deuxième joueur 'x'
+   bool gameState;//état du jeu: true: partie en cours, false: partie terminée
+   int winner; //gagnant: -2: on ne sait pas encore, -1: premier joueur, 0: égalité, 1; deuxième joueur
+   char board[16];//état du plateau de jeu, 0: pas encore cliqué, 'o' ou 'x': cliqué
+};
+
 //Création du modèle
 Model *create_model(bool turn, bool gameState, int winner){
    Model *m = malloc(sizeof(Model));
    if(m == NULL)
       return NULL;
 
-   m->turn = turn;
-   m->gameState = gameState;
-   m->winner = winner;
+   char *board = malloc(sizeof(char) * 16);
    
    for(int i = 0; i < 16; i++)
-      m->board[i] = 0;
+      board[i] = 0;
+
+   set_turn(m, turn);
+   set_gameState(m, gameState);
+   set_winner(m, winner);
+   set_board(m, board);
+
+   free(board);
 
    return m;
 }
+
+//debut accesseurs en lecture
+bool get_turn(Model *m){
+   assert(m != NULL);
+
+   return m->turn;
+}
+
+bool get_gameState(Model *m){
+   assert(m != NULL);
+
+   return m->gameState;
+}
+
+int get_winner(Model *m){
+   assert(m != NULL);
+
+   return m->winner;
+}
+
+char *get_board(Model *m){
+   assert(m != NULL);
+
+   return m->board;
+}//fin accesseurs en lecture
+
+//debut accesseurs en écriture
+Model *set_turn(Model *m, bool turn){
+   assert(m != NULL);
+
+   m->turn = turn;
+
+   return m;
+}
+
+Model *set_gameState(Model *m, bool gameState){
+   assert(m != NULL);
+
+   m->gameState = gameState;
+
+   return m;
+}
+
+Model *set_winner(Model *m, int winner){
+   assert(m != NULL);
+
+   m->winner = winner;
+
+   return m;
+}
+
+Model *set_board(Model *m, char board[16]){
+   assert(m != NULL && board != NULL);
+
+   for(int i = 0; i < 16; i++)
+      m->board[i] = board[i];
+
+   return m;
+}//fin accesseurs en écriture
 
 //Combinaisons gagnantes
 const int winningCombinations[24][3] = {{0, 1, 2}, {1, 2, 3}, {4, 5, 6}, {5, 6, 7}, {8, 9, 10}, {9, 10, 11}, {12, 13, 14}, {13, 14, 15}, {0, 4, 8}, {4, 8, 12}, {1, 5, 9}, {5, 9, 13}, {2, 6, 10}, {6, 10, 14}, {3, 7, 11}, {7, 11, 15}, {4, 9, 14}, {0, 5, 10}, {5, 10, 15}, {1, 6, 11}, {2, 5, 8}, {3, 6, 9}, {6, 9, 12}, {7, 10, 13}};
@@ -38,13 +112,14 @@ bool check_game_status(const int winningCombi[24][3], int *winningBlock, Model *
 
    for(int i = 0; i < 24; i++){
       int count = 0;
-      if(m->board[winningCombi[i][0]] == 'o')
+
+      if(get_board(m)[winningCombi[i][0]] == 'o')
          count++;
       
-      if(m->board[winningCombi[i][1]] == 'x')
+      if(get_board(m)[winningCombi[i][1]] == 'x')
          count++;
       
-      if(m->board[winningCombi[i][2]] == 'o')
+      if(get_board(m)[winningCombi[i][2]] == 'o')
          count++;
 
       if(count == 3){
@@ -64,15 +139,15 @@ int who_wins(Model *m, int *winningBlocks){
    bool win = false;
 
    win = check_game_status(winningCombinations, winningBlocks, m);
-   if(win && m->turn)
-      m->winner = 1;//le joueur 2 gagne
-   else if(win && !m->turn)
-      m->winner = -1;//le joueur 1 gagne
+   if(win && get_turn(m))
+      set_winner(m, 1);//le joueur 2 gagne
+   else if(win && !get_turn(m))
+      set_winner(m, -1);//le joueur 1 gagne
 
    if(is_board_full(m))
-      m->winner = 0;//égalité
+      set_winner(m, 0);//égalité
 
-   return m->winner;
+   return get_winner(m);
 }
 
 //Check si le plateau est remplit ou pas
@@ -80,7 +155,7 @@ bool is_board_full(Model *m){
    assert(m != NULL);
 
    for(int i = 0; i < 16; i++){
-      if(m->board[i] == 0)
+      if(get_board(m)[i] == 0)
          return false;
    }
    return true;

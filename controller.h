@@ -8,14 +8,6 @@
  * @projet: INFO0030 Projet 3
  */
 
-/**
- * \file controller.h
- * \brief Librairie contenant les prototypes des fonctions liées aux actions de l'utilisateur
- * \author Peissone Dumoulin - Université de Liège
- * \version 1.0
- * \date 04/04/2021
-*/
-
 /*
  * Include guard (pour éviter les problèmes d'inclusions multiples
  * Bonne pratique: toujours encadrer un header avec un include guard
@@ -29,12 +21,126 @@
 #include "model.h"
 #include "vue.h"
 
-typedef struct controller_t{
-   struct vue_t *v;
-   Model *m;
-   GtkWidget *pButton[17];
-   unsigned short pButtonNumber;
-}Controller;
+/**
+ * \file controller.h
+ * \brief Librairie contenant les prototypes des fonctions liées aux actions de l'utilisateur
+ * \author Peissone Dumoulin - Université de Liège
+ * \version 1.0
+ * \date 04/04/2021
+ * 
+ * Déclaration du type opaque Controller
+ *
+ */
+
+typedef struct controller_t Controller;
+
+/**
+ * \fn struct vue_t *get_vue(Controller *c)
+ * \brief Accesseur en lecture pour le champ v
+ * 
+ * \param c le controlleur
+ * 
+ * \pre c != NULL
+ * \post le champ est lu
+ * 
+ * \return c->v Succès
+ */
+struct vue_t *get_vue(Controller *c);
+
+/**
+ * \fn Model *get_model_c(Controller *c)
+ * \brief Accesseur en lecture pour le champ m
+ * 
+ * \param c le controlleur
+ * 
+ * \pre c != NULL
+ * \post le champ est lu
+ * 
+ * \return c->m Succès
+ */
+Model *get_model_c(Controller *c);
+
+/**
+ * \fn GtkWidget **get_buttons(Controller *c)
+ * \brief Accesseur en lecture pour le champ pButton
+ * 
+ * \param c le controlleur
+ * 
+ * \pre c != NULL
+ * \post le champ est lu
+ * 
+ * \return c->pButton Succès
+ */
+GtkWidget **get_buttons(Controller *c);
+
+/**
+ * \fn unsigned int get_pButtonNumber(Controller *c)
+ * \brief Accesseur en lecture pour le champ pButtonNumber
+ * 
+ * \param c le controlleur
+ * 
+ * \pre c != NULL
+ * \post le champ est lu
+ * 
+ * \return c->pbuttonNumber Succès
+ */
+unsigned int get_pButtonNumber(Controller *c);
+
+/**
+ * \fn Controller *set_vue(Controller *c, struct vue_t *v)
+ * \brief Accesseur en écriture pour le champ v
+ * 
+ * \param c le controlleur
+ * \param v la vue
+ * 
+ * \pre c != NULL, v != NULL
+ * \post le champ est modifié
+ * 
+ * \return c Succès
+ */
+Controller *set_vue(Controller *c, struct vue_t *v);
+
+/**
+ * \fn Controller *set_model_c(Controller *c, Model *m)
+ * \brief Accesseur en écriture pour le champ m
+ * 
+ * \param c le controlleur
+ * \param m le modèle
+ * 
+ * \pre c != NULL, m != NULL
+ * \post le champ est modifié
+ * 
+ * \return c Succès
+ */
+Controller *set_model_c(Controller *c, Model *m);
+
+/**
+ * \fn Controller *set_buttons(Controller *c, GtkWidget *pButtons[17])
+ * \brief Accesseur en écriture pour le champ pButtons
+ * 
+ * \param c le controlleur
+ * \param v la vue
+ * 
+ * \pre c != NULL, pButtons != NULL
+ * \post le champ est modifié
+ * 
+ * \return c Succès
+ */
+Controller *set_buttons(Controller *c, GtkWidget **pButtons);
+
+/**
+ * \fn Controller *set_buttonNumber(Controller *c, unsigned int pButtonNumber)
+ * \brief Accesseur en écriture pour le champ pButtonNumber
+ * 
+ * \param c le controlleur
+ * \param pButtonNumber le numéro du bouton
+ * 
+ * \pre c != NULL
+ * \post le champ est modifié
+ * 
+ * \return c Succès
+ */
+Controller *set_buttonNumber(Controller *c, unsigned int pButtonNumber);
 
 /**
  * \fn Controller *create_controller(struct vue_t *v, Model *m)
@@ -44,7 +150,7 @@ typedef struct controller_t{
  * \param m le modèle
  * 
  * \pre m != NULL, v != NULL
- * \post le controlleur est correctement créé
+ * \post le controlleur est créé
  * 
  * \return c Succès
  */
@@ -57,7 +163,7 @@ Controller *create_controller(struct vue_t *v, Model *m);
  * \param c le controlleur
  * 
  * \pre c != NULL
- * \post le controlleur est correctement créé
+ * \post les signaux sont effectifs
  * 
  * \return c Succès
  */

@@ -9,8 +9,8 @@
 # Tools & flags
 CC=gcc
 LD=gcc
-CFLAGS=--std=c99 --pedantic -Wall -W -Wmissing-prototypes
-LDFLAGS=--std=c99 --pedantic -Wall -W -Wmissing-prototypes
+CFLAGS=--std=c99 --pedantic -Wall -W -Wmissing-prototypes -g
+LDFLAGS=--std=c99 --pedantic -Wall -W -Wmissing-prototypes -g
 GTKFLAGS=`pkg-config --cflags --libs gtk+-2.0`
 
 # Files

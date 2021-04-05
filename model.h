@@ -8,14 +8,6 @@
  * @projet: INFO0030 Projet 3
  */
 
-/**
- * \file model.h
- * \brief Librairie contenant les prototypes des fonctions liées aux mécanismes du jeu
- * \author Peissone Dumoulin - Université de Liège
- * \version 1.0
- * \date 04/04/2021
-*/
-
 /*
  * Include guard (pour éviter les problèmes d'inclusions multiples
  * Bonne pratique: toujours encadrer un header avec un include guard
@@ -28,12 +20,17 @@
 
 #include <gtk/gtk.h>
 
-typedef struct model_t{
-   bool turn;//tour du joueur: false: premier joueur 'o', true: deuxième joueur 'x'
-   bool gameState;//état du jeu: true: partie en cours, false: partie terminée
-   int winner; //gagnant: -2: on ne sait pas encore, -1: premier joueur, 0: égalité, 1; deuxième joueur
-   char board[16];//état du plateau de jeu, 0: pas encore cliqué, 'o' ou 'x': cliqué
-}Model;
+/**
+ * \file model.h
+ * \brief Librairie contenant les prototypes des fonctions liées aux mécanismes du jeu
+ * \author Peissone Dumoulin - Université de Liège
+ * \version 1.0
+ * \date 04/04/2021
+ * 
+ * Déclaration du type opaque Model
+ *
+ */
+typedef struct model_t Model;
 
 /**
  * \fn Model *create_model(bool turn, bool gameState, int winner)
@@ -49,6 +46,114 @@ typedef struct model_t{
  * \return m Succès
  */
 Model *create_model(bool turn, bool gameState, int winner);
+
+/**
+ * \fn bool get_turn(Model *m)
+ * \brief Accesseur en lecture pour le champ turn
+ * 
+ * \param m le modèle
+ * 
+ * \pre m != NULL
+ * \post le champ est lu
+ * 
+ * \return m->turn Succès
+ */
+bool get_turn(Model *m);
+
+/**
+ * \fn bool get_gameState(Model *m)
+ * \brief Accesseur en lecture pour le champ gameState
+ * 
+ * \param m le modèle
+ * 
+ * \pre m != NULL
+ * \post le champ est lu
+ * 
+ * \return m->gameState Succès
+ */
+bool get_gameState(Model *m);
+
+/**
+ * \fn int get_winner(Model *m)
+ * \brief Accesseur en lecture pour le champ winner
+ * 
+ * \param m le modèle
+ * 
+ * \pre m != NULL
+ * \post le champ est lu
+ * 
+ * \return m->winner Succès
+ */
+int get_winner(Model *m);
+
+/**
+ * \fn char *get_board(Model *m)
+ * \brief Accesseur en lecture pour le champ board
+ * 
+ * \param m le modèle
+ * 
+ * \pre m != NULL
+ * \post le champ est lu
+ * 
+ * \return m->board Succès
+ */
+char *get_board(Model *m);
+
+/**
+ * \fn Model *set_turn(Model *m, bool turn)
+ * \brief Accesseur en écriture pour le champ turn
+ * 
+ * \param m le modèle
+ * \param turn le tour du joueur courant
+ * 
+ * \pre m != NULL
+ * \post le champ est modifié
+ * 
+ * \return m Succès
+ */
+Model *set_turn(Model *m, bool turn);
+
+/**
+ * \fn Model *set_gameState(Model *m, bool gameState)
+ * \brief Accesseur en écriture pour le champ gameState
+ * 
+ * \param m le modèle
+ * \param gameState l'état du jeu
+ * 
+ * \pre m != NULL
+ * \post le champ est modifié
+ * 
+ * \return m Succès
+ */
+Model *set_gameState(Model *m, bool gameState);
+
+/**
+ * \fn Model *set_winner(Model *m, int winner)
+ * \brief Accesseur en écriture pour le champ winner
+ * 
+ * \param m le modèle
+ * \param winner le gagnant
+ * 
+ * \pre m != NULL
+ * \post le champ est modifié
+ * 
+ * \return m Succès
+ */
+Model *set_winner(Model *m, int winner);
+
+/**
+ * \fn Model *set_board(Model *m, char board[16])
+ * \brief Accesseur en écriture pour le champ winner
+ * 
+ * \param m le modèle
+ * \param board le plateau de jeu
+ * 
+ * \pre m != NULL, board != NULL
+ * \post le champ est modifié
+ * 
+ * \return m Succès
+ */
+Model *set_board(Model *m, char board[16]);
 
 /**
  * \fn bool check_game_status(const int direction[8][3], int *winningBlock, Model *m)
