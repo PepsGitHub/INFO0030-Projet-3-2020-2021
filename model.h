@@ -156,7 +156,7 @@ Model *set_winner(Model *m, int winner);
 Model *set_board(Model *m, char board[16]);
 
 /**
- * \fn bool check_game_status(const int direction[8][3], int *winningBlock, Model *m)
+ * \fn bool check_game_status(const int direction[24][3], int *winningBlock, Model *m)
  * \brief Check si la partie est toujours en cours et si ce n'est pas le cas, donne aussi la combinaison gagnante
  * 
  * \param direction la direction des combinaisons gagnantes
@@ -189,7 +189,7 @@ int who_wins(Model *m, int *winningBlocks);
 
 /**
  * \fn bool is_board_full(Model *m)
- * \brief //Check si le plateau est remplit ou pas
+ * \brief Check si le plateau est remplit ou pas
  * 
  * \param m le modèle
  * 

@@ -143,14 +143,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a47316ab100aa4b568b5836520a5fd599"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmodel__t.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="model_8h.html#a47316ab100aa4b568b5836520a5fd599">set_board</a> (<a class="el" href="structmodel__t.html">Model</a> *m, char board[16])</td></tr>
 <tr class="memdesc:a47316ab100aa4b568b5836520a5fd599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesseur en écriture pour le champ winner.  <a href="model_8h.html#a47316ab100aa4b568b5836520a5fd599">More...</a><br /></td></tr>
 <tr class="separator:a47316ab100aa4b568b5836520a5fd599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a304147e225345aa43f71dabb1eeaaff0"><td class="memItemLeft" align="right" valign="top"><a id="a304147e225345aa43f71dabb1eeaaff0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>check_game_status</b> (const int direction[24][3], int *winningBlock, <a class="el" href="structmodel__t.html">Model</a> *m)</td></tr>
+<tr class="memitem:a304147e225345aa43f71dabb1eeaaff0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="model_8h.html#a304147e225345aa43f71dabb1eeaaff0">check_game_status</a> (const int direction[24][3], int *winningBlock, <a class="el" href="structmodel__t.html">Model</a> *m)</td></tr>
+<tr class="memdesc:a304147e225345aa43f71dabb1eeaaff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check si la partie est toujours en cours et si ce n'est pas le cas, donne aussi la combinaison gagnante.  <a href="model_8h.html#a304147e225345aa43f71dabb1eeaaff0">More...</a><br /></td></tr>
 <tr class="separator:a304147e225345aa43f71dabb1eeaaff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd415199590879ba3b0091e4418cabb4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="model_8h.html#acd415199590879ba3b0091e4418cabb4">who_wins</a> (<a class="el" href="structmodel__t.html">Model</a> *m, int *winningBlocks)</td></tr>
 <tr class="memdesc:acd415199590879ba3b0091e4418cabb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check qui gagne.  <a href="model_8h.html#acd415199590879ba3b0091e4418cabb4">More...</a><br /></td></tr>
 <tr class="separator:acd415199590879ba3b0091e4418cabb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a519928143bf74e855a1f0ae95b10c2e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">is_board_full</a> (<a class="el" href="structmodel__t.html">Model</a> *m)</td></tr>
-<tr class="memdesc:a519928143bf74e855a1f0ae95b10c2e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">//Check si le plateau est remplit ou pas  <a href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">More...</a><br /></td></tr>
+<tr class="memdesc:a519928143bf74e855a1f0ae95b10c2e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check si le plateau est remplit ou pas.  <a href="model_8h.html#a519928143bf74e855a1f0ae95b10c2e3">More...</a><br /></td></tr>
 <tr class="separator:a519928143bf74e855a1f0ae95b10c2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -164,6 +164,55 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>check_game_status</b>
 <dl class="section date"><dt>Date</dt><dd>04/04/2021</dd></dl>
 <p>Déclaration du type opaque Model </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a304147e225345aa43f71dabb1eeaaff0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a304147e225345aa43f71dabb1eeaaff0">&#9670;&nbsp;</a></span>check_game_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool check_game_status </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>winningCombi</em>[24][3], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>winningBlock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmodel__t.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check si la partie est toujours en cours et si ce n'est pas le cas, donne aussi la combinaison gagnante. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>la direction des combinaisons gagnantes </td></tr>
+    <tr><td class="paramname">winningBlock</td><td>la combinaison gagnante </td></tr>
+    <tr><td class="paramname">m</td><td>le modèle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>m != NULL </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>le statut est correctement vérifié</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true Partie finie </dd>
+<dd>
+false Partie toujours en cours </dd></dl>
+
+</div>
+</div>
 <a id="a0acdbd806dbdb6c6063bba338ff992d1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0acdbd806dbdb6c6063bba338ff992d1">&#9670;&nbsp;</a></span>create_model()</h2>
 
@@ -343,7 +392,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>check_game_status</b>
       </table>
 </div><div class="memdoc">
 
-<p>//Check si le plateau est remplit ou pas </p>
+<p>Check si le plateau est remplit ou pas. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">m</td><td>le modèle</td></tr>

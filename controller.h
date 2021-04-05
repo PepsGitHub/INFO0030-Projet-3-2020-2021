@@ -115,7 +115,7 @@ Controller *set_vue(Controller *c, struct vue_t *v);
 Controller *set_model_c(Controller *c, Model *m);
 
 /**
- * \fn Controller *set_buttons(Controller *c, GtkWidget *pButtons[17])
+ * \fn Controller *set_buttons(Controller *c, GtkWidget **pButtons)
  * \brief Accesseur en écriture pour le champ pButtons
  * 
  * \param c le controlleur
