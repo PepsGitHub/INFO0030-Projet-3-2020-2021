@@ -55,9 +55,5 @@ int main(int argc, char **argv){
 
    gtk_main();
    
-   free(c);
-   free(v);
-   free(m);
-   
    return EXIT_SUCCESS;
 }

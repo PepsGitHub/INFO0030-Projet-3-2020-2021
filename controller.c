@@ -89,7 +89,7 @@ Controller *create_controller(Vue *v, Model *m){
    if(c == NULL)
       return NULL;
 
-   GtkWidget **Buttons = (GtkWidget **)malloc(17 * sizeof(GtkWidget *));
+   GtkWidget *Buttons[17];
 
    for(int i = 0; i < 17; i++)
       Buttons[i] = NULL;
@@ -98,8 +98,6 @@ Controller *create_controller(Vue *v, Model *m){
    set_model_c(c, m);
    set_buttons(c, Buttons);
    set_buttonNumber(c, 0);
-
-   free(Buttons);
 
    return c;
 }
@@ -310,7 +308,7 @@ void click_new_game(GtkWidget *pButton, gpointer data){
    Controller *c = (Controller *)data;
 
    set_buttonNumber(c, 16);
-   char *board = malloc(16 * sizeof(char));
+   char board[16];
    GtkButton **pButtons = (GtkButton **)get_buttons(c);
 
    for(int i = 0; i < 16; i++){
@@ -323,8 +321,6 @@ void click_new_game(GtkWidget *pButton, gpointer data){
    set_turn(get_model_c(c), false);
    set_winner(get_model_c(c), -2);
    set_gameState(get_model_c(c), true);
-
-   free(board);
 }
 
 bool is_button_clicked(Controller *c, unsigned int buttonNumber){

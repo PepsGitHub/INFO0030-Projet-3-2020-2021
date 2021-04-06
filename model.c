@@ -29,7 +29,7 @@ Model *create_model(bool turn, bool gameState, int winner){
    if(m == NULL)
       return NULL;
 
-   char *board = malloc(sizeof(char) * 16);
+   char board[16];
    
    for(int i = 0; i < 16; i++)
       board[i] = 0;
