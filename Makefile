@@ -39,7 +39,7 @@ clean:
 	rm -f *.o oxo *~
 
 archive:
-	tar -zcvf oxo.tar.gz *.h *.c Makefile Doxyfile doxygen-bootstrapped-master
+	tar -zcvf oxo.tar.gz *.h *.c Makefile Doxyfile images doxygen-bootstrapped-master
 
 .PHONY: doc
 doc:
