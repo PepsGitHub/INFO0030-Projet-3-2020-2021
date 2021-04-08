@@ -4,7 +4,7 @@
  * Ce fichier contient les fonctions liées aux mécanismes du jeu
  * 
  * @author: Dumoulin Peissone S193957
- * @date: 04/04/21
+ * @date: 08/04/21
  * @projet: INFO0030 Projet 3
  */
 

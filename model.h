@@ -4,7 +4,7 @@
  * Ce fichier contient les prototypes des fonctions liées aux mécanismes du jeu
  * 
  * \author: Dumoulin Peissone S193957
- * \date: 04/04/21
+ * \date: 08/04/21
  * @projet: INFO0030 Projet 3
  */
 
@@ -25,7 +25,7 @@
  * \brief Librairie contenant les prototypes des fonctions liées aux mécanismes du jeu
  * \author Peissone Dumoulin - Université de Liège
  * \version 1.0
- * \date 04/04/2021
+ * \date 08/04/2021
  * 
  * Déclaration du type opaque Model
  *
