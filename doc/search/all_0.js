@@ -21,8 +21,9 @@ var searchData=
   ['click_5fnew_5fgame_18',['click_new_game',['../controller_8h.html#ad87be3e0d8b797774cba29e0c85d7ea7',1,'controller.c']]],
   ['controller_2eh_19',['controller.h',['../controller_8h.html',1,'']]],
   ['controller_5ft_20',['controller_t',['../structcontroller__t.html',1,'']]],
-  ['create_5fcontroller_21',['create_controller',['../controller_8h.html#a90b6c001e588684fb4e4362ac19446fe',1,'controller.c']]],
-  ['create_5fmodel_22',['create_model',['../model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1',1,'model.c']]],
-  ['create_5fvue_23',['create_vue',['../vue_8h.html#a4fdadf9b6d48dd2af5f231894b490aad',1,'vue.c']]],
-  ['create_5fwindow_24',['create_window',['../vue_8h.html#aca82692e3cdaff089bbfc7f3c9f69603',1,'vue.c']]]
+  ['create_5fand_5fattach_5fbuttons_21',['create_and_attach_buttons',['../vue_8h.html#af4cefb6c5c4a1ea7a096f216c33aedfd',1,'vue.c']]],
+  ['create_5fcontroller_22',['create_controller',['../controller_8h.html#a90b6c001e588684fb4e4362ac19446fe',1,'controller.c']]],
+  ['create_5fmodel_23',['create_model',['../model_8h.html#a0acdbd806dbdb6c6063bba338ff992d1',1,'model.c']]],
+  ['create_5fvue_24',['create_vue',['../vue_8h.html#a4fdadf9b6d48dd2af5f231894b490aad',1,'vue.c']]],
+  ['create_5fwindow_25',['create_window',['../vue_8h.html#aca82692e3cdaff089bbfc7f3c9f69603',1,'vue.c']]]
 ];

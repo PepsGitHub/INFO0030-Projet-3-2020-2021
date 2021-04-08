@@ -60,7 +60,7 @@ Vue *create_vue(Model *m);
 Model *get_model(Vue *v);
 
 /**
- * \fn Vue *set_model(Vue *v)
+ * \fn Vue *set_model(Vue *v, Model *m)
  * \brief Accesseur en écriture pour le champ m
  * 
  * \param v la vue
@@ -114,7 +114,8 @@ GtkButton *load_image_button(char *filename);
 GtkButton *change_image_button(GtkButton *pButton, char *filename);
 
 /**
- * \fn GtkWidget *create_and_attach_buttons(GtkWidget *pTable, GtkButton **pButton, struct controller_t *c)
+ * \fn GtkWidget *create_and_attach_buttons(GtkWidget *pTable, 
+ GtkWidget **pButton, struct controller_t *c)
  * \brief Création des boutons et du tableau de boutons
  * 
  * \param pTable la table où attacher les boutons
